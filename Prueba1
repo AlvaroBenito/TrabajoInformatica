@@ -1,6 +1,0 @@
-#include <stdio.h>
-void main(){
-  printf("Hola nene\n");
-  printf("Modificacion");
-  printf("Modi2");
-}
