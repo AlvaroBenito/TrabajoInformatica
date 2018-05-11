@@ -52,7 +52,3 @@ void PrismaRectangular::dibuja() {
 	glEnd();
 	glEnable(GL_LIGHTING);
 }
-void PrismaRectangular::cambia(float t) {
-	p1.z += 0.50;
-	p2.z += 0.50;
-}

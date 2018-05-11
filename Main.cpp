@@ -1,9 +1,10 @@
 #include "glut.h"
 #include "Mundo.h"
+#include "Plataforma.h"
 #define PI 3.1416
 
-Mundo mundo;
-
+//Mundo mundo;
+Plataforma plat;
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
 //NO HACE FALTA LLAMARLAS EXPLICITAMENTE
@@ -11,7 +12,7 @@ void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla
 //declaraciones de funciones
-
+int x = 0, y = 0, z = 0;
 
 int main(int argc, char* argv[])
 {
@@ -37,8 +38,7 @@ int main(int argc, char* argv[])
 	glutKeyboardFunc(OnKeyboardDown);
 
 	//Inicializamos nuestros juego:
-	mundo.inicializa();
-
+	//mundo.inicializa();
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
@@ -46,6 +46,7 @@ int main(int argc, char* argv[])
 }
 void OnDraw(void)
 {
+
 	//Borrado de la pantalla	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -53,27 +54,31 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(0, 10, 0,  // posicion del ojo
-		0, 10, 20,      // hacia que punto mira  (0,0,0) 
+	gluLookAt(x, y, z,  // posicion del ojo
+		0, 0, 0,      // hacia que punto mira  (0,0,0) 
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 							 //aqui es donde hay que poner el código de dibujo
 	
-	mundo.dibuja();
-	
+	//mundo.dibuja();
+	plat.dibuja();
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
 
 }
 void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
-	
+	if (key == 'a') x++;
+	if (key == 'b') y++;
+	if (key == 'c')z++;
+	if (key == 'd') x--;
+	if (key == 'f') y--;
+	if (key == 'g')z--;
 	glutPostRedisplay();
 }
 
 void OnTimer(int value)
 {
-	mundo.mueve();
-
+	//mundo.mueve();
 	//DOS ULTIMAS LINEAS OBLIGATORIAS
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();

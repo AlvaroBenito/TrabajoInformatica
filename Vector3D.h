@@ -13,5 +13,7 @@ public:
 	Vector3D operator - (Vector3D &);	
 	Vector3D operator + (Vector3D &);	
 	float operator *(Vector3D &);	 	
-	Vector3D operator *(float);		
+	Vector3D operator *(float);	
+	Vector3D operator /(float);
+
 };

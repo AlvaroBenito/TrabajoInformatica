@@ -5,8 +5,6 @@ class Personaje :public Elemento {
 	bool escudo;
 	int contMonedas;
 public:
-	Personaje();
-	virtual ~Personaje();
 	void Dibuja();
 	int getVidas();
 };

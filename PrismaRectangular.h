@@ -9,7 +9,4 @@ class PrismaRectangular {
 public:
 	PrismaRectangular(Vector3D coor1, Vector3D coor2);
 	void dibuja();
-	void cambia(float t);//Habia pensado que segun avances por el mapa, lo que se queda atras del personaje se vaya "destruyendo" y lo de delante se vaya "creando" cambiando los parametros p1 y p2
-				         //En funcion del tiempo
-
 };

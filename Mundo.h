@@ -16,8 +16,6 @@ class Mundo
 	float z_ojo;
 
 public:
-
-	
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void inicializa();
