@@ -16,13 +16,14 @@ class Plataforma
 	PrismaRectangular sueloIzq;
 	PrismaRectangular MuroDer;
 	PrismaRectangular MuroIzq;
+	static float z;
 public:
 	Plataforma();
 	void dibuja();
+	Vector3D getPos();
 	/*
 	void setColor(int r, int v, int a);
 	void setPos(float x1, float y1, float x2, float y2);
 	float distancia(Vector3D punto, Vector3D *direccion);
 	*/	
 };
-

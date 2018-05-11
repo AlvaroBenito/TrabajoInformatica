@@ -52,3 +52,6 @@ void PrismaRectangular::dibuja() {
 	glEnd();
 	glEnable(GL_LIGHTING);
 }
+Vector3D PrismaRectangular::getP1() {
+	return p1;
+}

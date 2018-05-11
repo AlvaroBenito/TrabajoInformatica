@@ -15,5 +15,6 @@ public:
 	float operator *(Vector3D &);	 	
 	Vector3D operator *(float);	
 	Vector3D operator /(float);
-
+	Vector3D operator + (float x1);//Operacion sumar al eje x
+	Vector3D operator - (float x1);
 };

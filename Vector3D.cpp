@@ -62,3 +62,17 @@ Vector3D Vector3D::operator /(float f)
 	res.z = z / f;
 	return res;
 }
+Vector3D Vector3D::operator + (float x1) {
+	Vector3D res;
+	res.x = x+x1;
+	res.y = y;
+	res.z = z;
+	return res;
+}
+Vector3D Vector3D::operator - (float x1) {
+	Vector3D res;
+	res.x = x-x1;
+	res.y = y;
+	res.z = z;
+	return res;
+}

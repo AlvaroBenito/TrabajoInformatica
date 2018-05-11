@@ -9,4 +9,5 @@ class PrismaRectangular {
 public:
 	PrismaRectangular(Vector3D coor1, Vector3D coor2);
 	void dibuja();
+	Vector3D getP1();
 };

@@ -6,16 +6,22 @@ void Mundo::dibuja(){
 
 }
 
-void Mundo::mueve() {
-
+void Mundo::mueve(float t) {
+	ojo.z -= 0.5f;
+	z_apunta -= 0.5f;
 }
 
 void Mundo::inicializa() {
 
-	x_ojo = 0;
-	y_ojo = 7.5;
-	z_ojo = 30;
-
+	ojo.x = 0.0f;
+	ojo.y = 4.5f;
+	ojo.z = -55.0f;
+	z_apunta = -100.0f;
 
 }
-
+Vector3D Mundo::getOjo() {
+	return ojo;
+}
+float Mundo::getZapunta() {
+	return z_apunta;
+}
