@@ -1,11 +1,17 @@
 #pragma once
-#include "Bonus.h"
-class Moneda :public Bonus {
-	float radio_int;//la podemos hacer a modo toroide o en plan con los bordes mas gruesos que el interior
-	float radio_ext;
+#include "Elemento.h"
+class Moneda :public Elemento {
+	float radio;
+
+	//static int monedasRecogidas;
+
 public:
 	Moneda();
 	virtual ~Moneda();
-	void sumaMoneda();//funcion para que cuando se coja la moneda, se sume 1 a la cuenta de Personaje
+	void dibuja();
+	//void sumaMoneda();//funcion para que cuando se coja la moneda, se sume 1 a la cuenta de Personaje
+	//Esto se hace con un atributo static en la clase
 
 };
+
+//int Moneda::monedasRecogidas = 0;

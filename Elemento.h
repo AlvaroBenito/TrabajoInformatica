@@ -6,7 +6,8 @@ class Elemento {
 protected://Protected para que lo use solo las clases heredadas y luego ponemos friend las clases para las interacciones y ese rollo
 	Vector3D posicion;
 	Vector3D velocidad;
-	Color RGB;
+
 public:
 	void mueve(float t);//En obstaculos no se usa necesariamente
+	void rotar(float t);//
 };

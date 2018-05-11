@@ -1,8 +1,8 @@
 #include "glut.h"
-#include "math.h"
-#include "PrismaRectangular.h"
-#include "Vector3D.h"
+#include "Mundo.h"
 #define PI 3.1416
+
+Mundo mundo;
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
@@ -11,8 +11,8 @@ void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla
 //declaraciones de funciones
-Vector3D p1(5.0,5.0,5.0), p2(10.0,15.0,20.0);
-PrismaRectangular a(p1, p2) ;
+
+
 int main(int argc, char* argv[])
 {
 
@@ -36,6 +36,9 @@ int main(int argc, char* argv[])
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
 
+	//Inicializamos nuestros juego:
+	mundo.inicializa();
+
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
@@ -50,12 +53,14 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(30, 35, -40,  // posicion del ojo
-		5.0, 5.0, 5.0,      // hacia que punto mira  (0,0,0) 
+	gluLookAt(0, 10, 0,  // posicion del ojo
+		0, 10, 20,      // hacia que punto mira  (0,0,0) 
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 							 //aqui es donde hay que poner el código de dibujo
-	a.dibuja();
+	
+	mundo.dibuja();
+	
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
 
@@ -67,7 +72,8 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
 
 void OnTimer(int value)
 {
-	a.cambia(0.025);
+	mundo.mueve();
+
 	//DOS ULTIMAS LINEAS OBLIGATORIAS
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
