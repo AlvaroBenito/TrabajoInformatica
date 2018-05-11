@@ -3,7 +3,6 @@
 #define PI 3.1416
 
 Mundo mundo;
-Mapa mapa;
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
 //NO HACE FALTA LLAMARLAS EXPLICITAMENTE
@@ -60,7 +59,6 @@ void OnDraw(void)
 							 //aqui es donde hay que poner el código de dibujo
 	
 	mundo.dibuja();
-	mapa.dibuja();
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
 

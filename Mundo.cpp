@@ -3,19 +3,20 @@
 void Mundo::dibuja(){
 
 	moneda.dibuja();
-
+	mapa.dibuja();
 }
 
 void Mundo::mueve(float t) {
 	ojo.z -= 0.5f;
 	z_apunta -= 0.5f;
+
 }
 
 void Mundo::inicializa() {
 
 	ojo.x = 0.0f;
 	ojo.y = 4.5f;
-	ojo.z = -55.0f;
+	ojo.z = 10.0f;
 	z_apunta = -100.0f;
 
 }
