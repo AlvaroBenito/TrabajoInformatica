@@ -16,8 +16,9 @@ class Plataforma
 	PrismaRectangular sueloIzq;
 	PrismaRectangular MuroDer;
 	PrismaRectangular MuroIzq;
-	static float z;
+
 public:
+	static float z;
 	Plataforma();
 	void dibuja();
 	Vector3D getPos();

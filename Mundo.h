@@ -18,10 +18,11 @@ public:
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void inicializa();
-	void mueve(float t);
+	void mueve();
 	void dibuja();
 	Vector3D getOjo();
 	float getZapunta();
+	void cambia();
 	
 };
 

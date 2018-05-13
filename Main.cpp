@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
-
+	
 	//Inicializamos nuestros juego:
 	mundo.inicializa();
 
@@ -71,8 +71,8 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
 
 void OnTimer(int value)
 {
-	mundo.mueve(0.025);
-
+	mundo.mueve();
+	mundo.cambia();
 	//DOS ULTIMAS LINEAS OBLIGATORIAS
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
