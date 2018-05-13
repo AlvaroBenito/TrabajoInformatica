@@ -8,7 +8,7 @@ void Mundo::dibuja(){
 void Mundo::mueve() {
 	ojo.z -= 0.4f;
 	z_apunta -= 0.4f;
-
+	
 }
 
 void Mundo::inicializa() {
