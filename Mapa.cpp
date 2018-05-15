@@ -15,7 +15,6 @@ void Mapa::dibuja() {                     //funcion para dibujar las 17 platafor
 		camino[i].dibuja();
 	}
 	inicializa = true;
-
 }
 void Mapa::cambia() {//funcion para destruir y volver a crear las plataformas:
 					 //El objetivo es que el mapa vaya avanzando y que cuando se añadan texturas, de una sensacion de avance del personaje

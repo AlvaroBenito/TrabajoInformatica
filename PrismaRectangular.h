@@ -6,8 +6,14 @@ class PrismaRectangular {
 	Vector3D p1;
 	Vector3D p2;
 	Color RGB;
+	
 public:
+	static int tipoMaterial;
 	PrismaRectangular(Vector3D coor1, Vector3D coor2);
+	PrismaRectangular();
 	void dibuja();
+	void dibuja2(Vector3D a, Vector3D b);
 	Vector3D getP1();
+	Vector3D getP2();
+	void setP1_P2(Vector3D a, Vector3D b);
 };

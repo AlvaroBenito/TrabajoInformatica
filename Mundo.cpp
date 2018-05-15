@@ -3,12 +3,14 @@
 void Mundo::dibuja(){
 	//moneda.dibuja();
 	mapa.dibuja();
+	portal.dibuja();
+	if (ojo.z < portal.z) portal.z -= 280;
 }
 
 void Mundo::mueve() {
+	static float signo = 1;
 	ojo.z -= 0.4f;
 	z_apunta -= 0.4f;
-	
 }
 
 void Mundo::inicializa() {

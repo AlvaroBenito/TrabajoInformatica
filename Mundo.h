@@ -5,12 +5,14 @@
 #include "Personaje.h"
 #include "Plataforma.h"
 #include "Vector3D.h"
+#include "Portal.h"
 class Mundo
 {
 	Mapa mapa;
 	Bonus bonus;
 	Moneda moneda;
 	Personaje personaje;
+	Portal portal;
 	Vector3D ojo;
 	float z_apunta;
 
