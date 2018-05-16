@@ -3,17 +3,20 @@
 
 #include "Vector2D.h"
 
-class Bonus  
+class Hombre
 {
 	friend class Interaccion;
 public:
 	void mueve(float t);
 	void dibuja();
-	void setPos(float ix,float iy);
-	Bonus();
-	virtual ~Bonus();
+	Hombre();
+	virtual ~Hombre();
+	void setVel(float vx, float vy);
+	float getAltura();
+	Vector2D getPos();
+
 private:
-	float lado;
+	float altura;
 	Vector2D posicion;
 	Vector2D velocidad;
 	Vector2D aceleracion;
