@@ -1,30 +1,34 @@
-#include "Caja.h"	
-#include "Hombre.h"	
-#include "Esfera.h"	
-#include "Bonus.h"	
-#include "Disparo.h"
-#include "Interaccion.h"
-#include "ListaEsferas.h"
+#pragma once
+#include "Mapa.h"
+#include "Bonus.h"
+#include "Moneda.h"
+#include "Personaje.h"
+#include "Plataforma.h"
+#include "Vector3D.h"
+#include "Portal.h"
+#include "ListaMonedas.h"
 
 class Mundo
 {
-
-	Disparo disparo;
-	Hombre hombre;
-	Caja caja;
+	Mapa mapa;
+	Moneda moneda;
+	ListaMonedas monedas;
 	Bonus bonus;
-	Pared plataforma;
-	ListaEsferas esferas;
-	float x_ojo;
-	float y_ojo;
-	float z_ojo;
-public: 
+	Personaje personaje;
+	Portal portal;
+	Vector3D ojo;
+	float z_apunta;
 
+public:
+	
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void inicializa();
-	void rotarOjo();
 	void mueve();
 	void dibuja();
-	~Mundo();
+	Vector3D getOjo();
+	float getZapunta();
+	void cambia();
+	
 };
+

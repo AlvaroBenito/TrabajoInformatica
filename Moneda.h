@@ -5,11 +5,12 @@
 class Moneda :public Elemento {
 	
 	//static int monedasRecogidas;
+	float anguloRotacion;
 
 public:
 	
 	void dibuja();
-	void rotar(float t);
+	void rotar(float t=5);
 
 	//void sumaMoneda();//funcion para que cuando se coja la moneda, se sume 1 a la cuenta de Personaje
 	//Esto se hace con un atributo static en la clase
