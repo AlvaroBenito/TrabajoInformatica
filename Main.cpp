@@ -10,7 +10,7 @@ Mundo mundo;
 void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla
-//declaraciones de funciones
+													  //declaraciones de funciones
 
 int z = 40;
 int main(int argc, char* argv[])
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
-	
+
 	//Inicializamos nuestros juego:
 	mundo.inicializa();
 
@@ -51,7 +51,7 @@ void OnDraw(void)
 	//Para definir el punto de vista
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	
+
 	gluLookAt(mundo.getOjo().x, mundo.getOjo().y, mundo.getOjo().z,  // posicion del ojo
 		0, 1, mundo.getZapunta(),      // hacia que punto mira  (0,0,0) 
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    

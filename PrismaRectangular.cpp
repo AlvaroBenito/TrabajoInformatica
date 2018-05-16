@@ -3,18 +3,20 @@
 #include "glut.h"
 #include "Color.h"
 #include "ETSIDI.h"
+
 int PrismaRectangular::tipoMaterial = 0;
 PrismaRectangular::PrismaRectangular(Vector3D coor1, Vector3D coor2) {
 	p1 = coor1;//Duda para Raquel: ¿Hace falta sobrecargar el operador "=" para igualar objetos Vector3D? La duda es porque Vector3D no tiene punteros dentro
 	p2 = coor2;
 }
-PrismaRectangular::PrismaRectangular() {
+PrismaRectangular::PrismaRectangular() {//No es necesario ya que por defecto se inicializan vectores3d a 0.
 	p1.x = 0;
 	p1.y = 0;
 	p1.z = 0;
 	p2.x = 0;
 	p2.y = 0;
 	p2.z = 0;
+
 }
 void PrismaRectangular::dibuja() {
 	switch (tipoMaterial) {//Texturas a partir de aqui

@@ -9,14 +9,15 @@
 class Mundo
 {
 	Mapa mapa;
-	Bonus bonus;
 	Moneda moneda;
+	Bonus bonus;
 	Personaje personaje;
 	Portal portal;
 	Vector3D ojo;
 	float z_apunta;
 
 public:
+	
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void inicializa();

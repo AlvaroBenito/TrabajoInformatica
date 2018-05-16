@@ -1,14 +1,16 @@
 #pragma once
 #include "Elemento.h"
+#define RADIO_MONEDA_OUT 0.2f
+#define RADIO_MONEDA_IN 0.05f
 class Moneda :public Elemento {
-	float radio;
-
+	
 	//static int monedasRecogidas;
 
 public:
-	Moneda();
-	virtual ~Moneda();
+	
 	void dibuja();
+	void rotar(float t);
+
 	//void sumaMoneda();//funcion para que cuando se coja la moneda, se sume 1 a la cuenta de Personaje
 	//Esto se hace con un atributo static en la clase
 

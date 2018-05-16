@@ -8,7 +8,7 @@ class PrismaRectangular {
 	Color RGB;
 	
 public:
-	static int tipoMaterial;
+	static int tipoMaterial; 
 	PrismaRectangular(Vector3D coor1, Vector3D coor2);
 	PrismaRectangular();
 	void dibuja();
