@@ -9,26 +9,28 @@ Plano::Plano(){
 Plano::Plano(Vector3D coor1, Vector3D coor2) {
 	limite1 = coor1;
 	limite2 = coor2;
+	tipoMaterial = 0;
 }
 
-int Plano::material = 0;
+void Plano::setMaterial(int t) {
+	tipoMaterial = t;
+}
+
+
 
 void Plano::dibuja() {
 
 
-	switch (Plano::material) {//Texturas a partir de aqui
+	switch (tipoMaterial) {//Texturas a partir de aqui
 	case 0:
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Portal1.png").id);
 		break;
 	case 10:
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Portal1.png").id);
-		break;
-	case 100:
-		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Lava.png").id);
 		break;
+	
 	}
 
 	glDisable(GL_LIGHTING);

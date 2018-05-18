@@ -12,6 +12,7 @@ class Mundo
 {
 	Mapa mapa;
 	Moneda moneda;
+	Moneda moneda2, moneda3;
 	ListaMonedas monedas;
 	Bonus bonus;
 	Personaje personaje;

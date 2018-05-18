@@ -1,17 +1,11 @@
 #include "elemento.h"
 
 
-Elemento::Elemento() {
-	
-}
-
-Elemento::Elemento(Vector3D pos, float vel) {
-	posicion = pos;
-	velocidad = vel;
-	
-}
 
 void Elemento::mueve() {
-	posicion.z = posicion.z + velocidad;
+	posicion.z = posicion.z - velocidad;
 }
 
+void Elemento::setPosZ(float z) {
+	posicion.z = z;
+}

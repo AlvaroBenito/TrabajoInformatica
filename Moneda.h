@@ -8,10 +8,13 @@ class Moneda :public Elemento {
 	float anguloRotacion;
 
 public:
-	
+
+	Moneda();
+	Moneda(float posx, float posy, float posz, float vel=0);
+	void setPos(Vector3D pos);
 	void dibuja();
 	void rotar(float t=5);
-
+	
 	//void sumaMoneda();//funcion para que cuando se coja la moneda, se sume 1 a la cuenta de Personaje
 	//Esto se hace con un atributo static en la clase
 

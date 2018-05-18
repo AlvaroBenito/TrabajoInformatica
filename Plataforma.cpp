@@ -29,8 +29,8 @@ void Plataforma::dibuja() {
 	sueloCen.dibuja();
 	MuroDer.dibuja();
 	MuroIzq.dibuja();
-
-	Plano::material = 10;
+//Para dibujar planos ponemos antes la funcion plano.setMaterial para elegir la textura.
+	FondoSuelo.setMaterial(0);
 	FondoSuelo.dibuja();
 	
 }
