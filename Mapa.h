@@ -10,6 +10,7 @@ class Mapa {
 public:
 	Mapa();
 	void dibuja();
-	void cambia();
+	void cambia(float mult);
+	Plataforma getSuelo(int i);
 };
 

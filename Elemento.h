@@ -6,9 +6,10 @@ class Elemento {
 	
 
 public:
-	
 	Vector3D posicion;
-	float velocidad;
-	void mueve();//En obstaculos no se usa necesariamente
+	Vector3D velocidad;
+public:
+	Elemento();
+	void mueve(float vel);//En obstaculos no se usa necesariamente
 	void setPosZ(float z);
 };

@@ -4,7 +4,9 @@ class Personaje :public Elemento {
 	int vidas;
 	bool escudo;
 	int contMonedas;
+	friend class Interaccion;
 public:
-	void Dibuja();
+	Personaje();
+	void dibuja();
 	int getVidas();
 };

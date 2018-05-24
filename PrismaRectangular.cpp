@@ -8,7 +8,6 @@ int PrismaRectangular::tipoMaterial = 0;
 PrismaRectangular::PrismaRectangular(Vector3D coor1, Vector3D coor2) {
 	p1 = coor1;//Duda para Raquel: ¿Hace falta sobrecargar el operador "=" para igualar objetos Vector3D? La duda es porque Vector3D no tiene punteros dentro
 	p2 = coor2;
-	tipoMaterial = 0;
 }
 PrismaRectangular::PrismaRectangular() {//No es necesario ya que por defecto se inicializan vectores3d a 0.
 	p1.x = 0;
@@ -17,14 +16,15 @@ PrismaRectangular::PrismaRectangular() {//No es necesario ya que por defecto se 
 	p2.x = 0;
 	p2.y = 0;
 	p2.z = 0;
-	tipoMaterial = 0;
 
 }
 
 void PrismaRectangular::setMaterial(int t) {
 	tipoMaterial = t;
 }
-
+int PrismaRectangular::getMaterial() {
+	return tipoMaterial;
+}
 void PrismaRectangular::dibuja() {
 	switch (tipoMaterial) {//Texturas a partir de aqui
 	case 0:
@@ -35,15 +35,15 @@ void PrismaRectangular::dibuja() {
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Madera.png").id);
 		break;
-	case 10:
+	case 2:
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/MetalNegro.png").id);
 		break;
-	case 100:
+	case 3:
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Lava.png").id);
 		break;
-	case 1000:
+	case 4:
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Portal1.png").id);
 	}

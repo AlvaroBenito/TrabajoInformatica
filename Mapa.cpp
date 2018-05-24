@@ -16,14 +16,20 @@ void Mapa::dibuja() {                     //funcion para dibujar las 17 platafor
 	}
 	inicializa = true;
 }
-void Mapa::cambia() {//funcion para destruir y volver a crear las plataformas:
+void Mapa::cambia(float mult) {//funcion para destruir y volver a crear las plataformas:
 					 //El objetivo es que el mapa vaya avanzando y que cuando se añadan texturas, de una sensacion de avance del personaje
-	static int cuenta = 24;//Se ajusta la creacion del nuevo mapa a la velocidad del personaje
-	if (cuenta == 0) {
+	static float cuenta = 25;
+	if (cuenta < 0) {
 		camino->z = -10 * (float)(++n);
 		delete[]camino;
 		camino = new Plataforma[17];
-		cuenta = 25;
+		cuenta += 25/mult;
 	}
-	cuenta--;
+	cuenta-=1;
+}
+Plataforma Mapa::getSuelo(int i) {
+	Plataforma plat;
+	if(camino!=0)
+		return camino[i];
+	else return plat;
 }

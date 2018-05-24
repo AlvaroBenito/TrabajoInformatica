@@ -37,3 +37,6 @@ void Plataforma::dibuja() {
 Vector3D Plataforma::getPos() {
 	return sueloDer.getP1();
 }
+PrismaRectangular Plataforma::getPrisma() {
+	return sueloCen;
+}

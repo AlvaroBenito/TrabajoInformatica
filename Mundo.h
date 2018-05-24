@@ -20,7 +20,8 @@ class Mundo
 	Portal portal;
 	Vector3D ojo;
 	float z_apunta;
-
+	float velocidadOjo;
+	static float multip;
 public:
 	
 	void tecla(unsigned char key);

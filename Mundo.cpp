@@ -1,5 +1,6 @@
 #include "Mundo.h"
-
+#include "Interaccion.h"
+float Mundo::multip = 1;//Para construir adecuadamente las plataformas
 void Mundo::dibuja(){
 	mapa.dibuja();
 	portal.dibuja();
@@ -7,20 +8,27 @@ void Mundo::dibuja(){
 	moneda2.dibuja();
 	moneda3.dibuja();
 	monedas.dibuja();
-
-	if (ojo.z < portal.z) portal.z -= 280;
-	
+	personaje.dibuja();
+	if (ojo.z < portal.z) {
+		static int a = 1;//Para cambiar texturas cuando se atraviesa portl
+		portal.z -= 280;
+		PrismaRectangular::setMaterial(a);
+		a++;
+		velocidadOjo -= 0.1f;
+		multip+=0.25f;//En realidad es un "multiplicador de frecuencia" de construccion del suelo, Siempre va a ser 1/4 del incremento de velocidadOjo por mátematica
+		if (a == 3) a = 0;
+	}
 }
 
 void Mundo::mueve() {
-	static float signo = 1;
-	ojo.z -= 0.4f;
-	z_apunta -= 0.4f;
+	ojo.z += velocidadOjo;
+	personaje.mueve(velocidadOjo);
+	z_apunta += velocidadOjo;
 	moneda.rotar();
 	moneda2.rotar();
 	moneda3.rotar();
 	monedas.rotar();
-
+	Interaccion::reboteSuelo(mapa.getSuelo(0).getPrisma(), personaje);
 }
 
 void Mundo::inicializa() {
@@ -28,12 +36,12 @@ void Mundo::inicializa() {
 	ojo.y = 4.5f;
 	ojo.z = -10.0f;
 	z_apunta = -100.0f;
-	
-	Vector3D pos(0, 1.7, -40);
+	velocidadOjo = -0.4f;
+	Vector3D pos(0.0f, 1.7f, -40.0f);
 	moneda.setPos(pos);
-	Vector3D pos2(1, 1.7, -40);
+	Vector3D pos2(1.0f, 1.7f, -40.0f);
 	moneda2.setPos(pos2);
-	Vector3D pos3(-1, 1.7, -40);
+	Vector3D pos3(-1.0f, 1.7f, -40.0f);
 	moneda3.setPos(pos3);
 
 	
@@ -46,8 +54,8 @@ float Mundo::getZapunta() {
 	return z_apunta;
 }
 void Mundo::cambia() {
-	mapa.cambia();
-	monedas.generadorMonedas();
-	monedas.descructorMonedas(getOjo().z-10.0);
+	mapa.cambia(multip);
+	//monedas.generadorMonedas();
+	//monedas.descructorMonedas(getOjo().z-10.0f);
 	
 }

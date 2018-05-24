@@ -1,4 +1,5 @@
 #pragma once
+#include <stdlib.h>
 #include "Moneda.h"
 #include "glut.h"
 #include "ETSIDI.h"
