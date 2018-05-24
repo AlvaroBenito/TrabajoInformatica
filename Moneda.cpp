@@ -27,11 +27,12 @@ void Moneda::rotar(float t){
 	anguloRotacion += t;
 }
 
-Moneda::Moneda(float posx, float posy, float posz, float vel) {
+Moneda::Moneda(float posx, float posy, float posz,float ang, float vel) {
 	posicion.x = posx;
 	posicion.y = posy;
 	posicion.z = posz;
 	velocidad = vel;
+	anguloRotacion = ang;
 
 }
 

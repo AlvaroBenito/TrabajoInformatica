@@ -10,6 +10,7 @@
 
 class Mundo
 {
+
 	Mapa mapa;
 	Moneda moneda;
 	Moneda moneda2, moneda3;
@@ -30,6 +31,7 @@ public:
 	Vector3D getOjo();
 	float getZapunta();
 	void cambia();
+	
 	
 };
 

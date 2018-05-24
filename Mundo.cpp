@@ -6,6 +6,7 @@ void Mundo::dibuja(){
 	moneda.dibuja();
 	moneda2.dibuja();
 	moneda3.dibuja();
+	monedas.dibuja();
 
 	if (ojo.z < portal.z) portal.z -= 280;
 	
@@ -18,6 +19,7 @@ void Mundo::mueve() {
 	moneda.rotar();
 	moneda2.rotar();
 	moneda3.rotar();
+	monedas.rotar();
 
 }
 
@@ -35,6 +37,7 @@ void Mundo::inicializa() {
 	moneda3.setPos(pos3);
 
 	
+
 }
 Vector3D Mundo::getOjo() {
 	return ojo;
@@ -44,4 +47,7 @@ float Mundo::getZapunta() {
 }
 void Mundo::cambia() {
 	mapa.cambia();
+	monedas.generadorMonedas();
+	monedas.descructorMonedas(getOjo().z-10.0);
+	
 }
