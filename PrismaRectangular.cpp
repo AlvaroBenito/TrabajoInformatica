@@ -93,9 +93,6 @@ void PrismaRectangular::dibuja() {
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 	
-	/*if (p2.z < -300) {
-		tipoMaterial = 1;
-	}*/
 }
 void PrismaRectangular::dibuja2(Vector3D a, Vector3D b) {
 	PrismaRectangular aux(a, b);

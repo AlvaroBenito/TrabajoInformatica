@@ -64,8 +64,7 @@ void OnDraw(void)
 
 }
 void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
-	if (key == 'a') z += 10;
-	if (key == 'b') z -= 10;
+	mundo.tecla(key);
 	glutPostRedisplay();
 }
 

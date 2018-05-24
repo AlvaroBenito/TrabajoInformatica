@@ -33,6 +33,5 @@ public:
 	float getZapunta();
 	void cambia();
 	
-	
 };
 

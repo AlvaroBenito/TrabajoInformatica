@@ -8,6 +8,7 @@ class Elemento {
 public:
 	Vector3D posicion;
 	Vector3D velocidad;
+	float aceleracionY;
 public:
 	Elemento();
 	void mueve(float vel);//En obstaculos no se usa necesariamente

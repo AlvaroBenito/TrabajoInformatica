@@ -11,6 +11,6 @@ public:
 	Mapa();
 	void dibuja();
 	void cambia(float mult);
-	Plataforma getSuelo(int i);
+	Plataforma getPlat(int i);
 };
 
