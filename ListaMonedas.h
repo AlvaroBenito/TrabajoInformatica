@@ -3,7 +3,7 @@
 #include "Personaje.h"
 
 
-#define MAX_MONEDAS 60
+#define MAX_MONEDAS 28
 
 class ListaMonedas
 {
@@ -15,7 +15,7 @@ public:
 	void rotar();
 	void rebote(Personaje personaje);
 
-	void generadorMonedas();
+	void generadorMonedas(float coordz);
 	void descructorMonedas(float coordz);
 
 private:

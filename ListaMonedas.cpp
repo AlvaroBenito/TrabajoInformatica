@@ -1,5 +1,5 @@
 #include "ListaMonedas.h"
-
+#include <cstdlib>
 
 ListaMonedas::ListaMonedas()
 {
@@ -31,18 +31,20 @@ void ListaMonedas::rotar()
 		lista[i]->rotar();
 }
 
-void ListaMonedas::generadorMonedas(){
+void ListaMonedas::generadorMonedas(float coordz){
 
-	static int coorz=-40;
-	coorz -= 5;
-	int mod=coorz;
-
-	if (mod % 20 == 0) {
-		Moneda* aux = new Moneda(0, 1.7, coorz);
-		agregar(aux);
-	}
+	//static int coorz = -40;
+	//coorz -= 5;
+	float coorinicial = coordz;
+	if(numero==0){
+		for (float i = coordz; i > coordz - 270; i = i - 10) {
+			//if (mod % 20 == 0) {
+			Moneda* aux = new Moneda(rand()%3-1, 1.7, i);
+			agregar(aux);
+		}
+		}
 	
-
+	
 	
 }
 
@@ -52,6 +54,9 @@ void ListaMonedas::descructorMonedas(float coorz) {
 		if (coorz < lista[i]->posicion.z) {
 			delete lista[i];
 			numero--;
+			for (int j = i; j < numero; j++)
+				lista[j] = lista[j + 1];
+			
 		}
 	}
 }
