@@ -4,9 +4,6 @@ float Mundo::multip = 1;//Para construir adecuadamente las plataformas
 void Mundo::dibuja(){
 	personaje.dibuja();
 	mapa.dibuja();
-	moneda.dibuja();
-	moneda2.dibuja();
-	moneda3.dibuja();
 	monedas.dibuja();
 	portal.dibuja();//Tiene que ser el ultimo en dibujarse para que funcione bien la transparencia
 	if (ojo.z < portal.z) {
@@ -25,9 +22,6 @@ void Mundo::mueve() {
 	ojo.z += velocidadOjo;
 	personaje.mueve(velocidadOjo);
 	z_apunta += velocidadOjo;
-	moneda.rotar();
-	moneda2.rotar();
-	moneda3.rotar();
 	monedas.rotar();
 	Interaccion::reboteSuelo(mapa.getPlat(0).getSuelo(), personaje);
 	Interaccion::mueveCentro(mapa.getPlat(0).getSuelo(), personaje);
@@ -41,11 +35,9 @@ void Mundo::inicializa() {
 	z_apunta = -100.0f;
 	velocidadOjo = -0.4f;
 	Vector3D pos(0.0f, 1.7f, -40.0f);
-	moneda.setPos(pos);
 	Vector3D pos2(1.0f, 1.7f, -40.0f);
-	moneda2.setPos(pos2);
 	Vector3D pos3(-1.0f, 1.7f, -40.0f);
-	moneda3.setPos(pos3);
+	monedas.generadorMonedas(getOjo().z);
 }
 Vector3D Mundo::getOjo() {
 	return ojo;
@@ -55,7 +47,7 @@ float Mundo::getZapunta() {
 }
 void Mundo::cambia() {
 	mapa.cambia(multip);
-	monedas.generadorMonedas(getOjo().z);
+	monedas.añadirMoneda(getOjo().z);
 	monedas.descructorMonedas(getOjo().z-10.0f);
 	
 }

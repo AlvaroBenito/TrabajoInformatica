@@ -30,7 +30,7 @@ void Portal::dibuja() {
 	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Portal1.png").id);
 	glEnable(GL_BLEND); glBlendFunc(GL_ONE, GL_ONE);//Funcion para la transparencia de la textura del portal
 	glDisable(GL_LIGHTING);
-	glColor3f(1, 1, 1);
+	glColor3f(0.5, 0.5, 0.5);
 	glBegin(GL_POLYGON);
 	glTexCoord2d(0, 1); glVertex3f(4,0,z);
 	glTexCoord2d(1, 1); glVertex3f(4,8,z);

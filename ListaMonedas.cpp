@@ -1,6 +1,7 @@
+#include <stdlib.h>
 #include "ListaMonedas.h"
 #include <cstdlib>
-
+#include "ETSIDI.h"
 ListaMonedas::ListaMonedas()
 {
 
@@ -27,25 +28,15 @@ void ListaMonedas::dibuja()
 }
 void ListaMonedas::rotar()
 {
-	for (int i = 0; i<numero; i++)
-		lista[i]->rotar();
+	Moneda::anguloRotacion += 5;
 }
 
 void ListaMonedas::generadorMonedas(float coordz){
-
-	//static int coorz = -40;
-	//coorz -= 5;
-	float coorinicial = coordz;
-	if(numero==0){
-		for (float i = coordz; i > coordz - 270; i = i - 10) {
-			//if (mod % 20 == 0) {
-			Moneda* aux = new Moneda(rand()%3-1, 1.7, i);
+	float pos = (float)ETSIDI::lanzaDado(4) - 2;//como la distancia entre cada carril es 1, se aprovecha para obtener facilmente uno de los numeros: -1,0,1 de los tres carriles
+		for (float i = coordz-50; i > coordz - 85; i = i - 5) {
+			Moneda* aux = new Moneda(pos, 1.4f, i);
 			agregar(aux);
 		}
-		}
-	
-	
-	
 }
 
 void ListaMonedas::descructorMonedas(float coorz) {
@@ -56,7 +47,21 @@ void ListaMonedas::descructorMonedas(float coorz) {
 			numero--;
 			for (int j = i; j < numero; j++)
 				lista[j] = lista[j + 1];
-			
+			agr = true;
 		}
+	}
+}
+void ListaMonedas::añadirMoneda(float coorz) {
+	static int grupo = 7;
+	static float pos = (float)ETSIDI::lanzaDado(4)-2;
+	if (agr) {
+		Moneda *aux = new Moneda(pos, 1.4f, coorz - 120);
+		agregar(aux);
+		agr = false;
+		grupo --;
+	}
+	if (grupo == 0) {
+		pos = (float)ETSIDI::lanzaDado(4)-2;
+		grupo = 7;
 	}
 }

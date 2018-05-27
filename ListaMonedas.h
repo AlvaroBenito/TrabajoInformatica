@@ -17,8 +17,10 @@ public:
 
 	void generadorMonedas(float coordz);
 	void descructorMonedas(float coordz);
+	void añadirMoneda(float coordz);
 
 private:
 	Moneda * lista[MAX_MONEDAS];
 	int    numero;
+	bool agr;
 };
