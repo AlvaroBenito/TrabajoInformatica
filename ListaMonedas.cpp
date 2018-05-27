@@ -28,7 +28,7 @@ void ListaMonedas::dibuja()
 }
 void ListaMonedas::rotar()
 {
-	Moneda::anguloRotacion += 5;
+	Moneda::sumaAnguloRot(5.0f);
 }
 
 void ListaMonedas::generadorMonedas(float coordz){
@@ -42,7 +42,7 @@ void ListaMonedas::generadorMonedas(float coordz){
 void ListaMonedas::descructorMonedas(float coorz) {
 
 	for (int i = 0; i <numero; i++) {
-		if (coorz < lista[i]->posicion.z) {
+		if (coorz < lista[i]->getPos().z) {
 			delete lista[i];
 			numero--;
 			for (int j = i; j < numero; j++)

@@ -6,9 +6,9 @@ void Mundo::dibuja(){
 	mapa.dibuja();
 	monedas.dibuja();
 	portal.dibuja();//Tiene que ser el ultimo en dibujarse para que funcione bien la transparencia
-	if (ojo.z < portal.z) {
+	if (ojo.z < portal.getZ()) {
 		static int a = 1;//Para cambiar texturas cuando se atraviesa portal
-		portal.z -= 280;
+		portal.setZ(portal.getZ()-280);
 		PrismaRectangular::setMaterial(a);
 		a++;
 		velocidadOjo -= 0.1f;

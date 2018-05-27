@@ -7,8 +7,7 @@ Portal::Portal(){
 	radio_int = 1;
 	radio_ext = 5;
 	z = -280;
-	rojo = 0;
-	azul = 0;
+
 }
 Portal::~Portal() {
 
@@ -40,4 +39,10 @@ void Portal::dibuja() {
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_BLEND);
 	glEnable(GL_LIGHTING);
+}
+float Portal::getZ() {
+	return z;
+}
+void Portal::setZ(float zi) {
+	z = zi;
 }

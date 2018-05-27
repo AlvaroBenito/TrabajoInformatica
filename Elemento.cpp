@@ -15,3 +15,6 @@ void Elemento::mueve(float vel) {
 void Elemento::setPosZ(float z) {
 	posicion.z = z;
 }
+Vector3D Elemento::getPos() {
+	return posicion;
+}

@@ -35,3 +35,6 @@ void Moneda::setPos(Vector3D pos) {
 
 	posicion = pos;
 }
+void Moneda::sumaAnguloRot(float theta) {
+	anguloRotacion += theta;
+}

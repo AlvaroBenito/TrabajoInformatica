@@ -5,11 +5,11 @@
 class Portal {
 	float radio_int;
 	float radio_ext;
-public:
-	unsigned char rojo;
-	unsigned char azul;
 	float z;
+public:
 	Portal();
 	~Portal();
 	void dibuja();
+	float getZ();
+	void setZ(float zi);
 };

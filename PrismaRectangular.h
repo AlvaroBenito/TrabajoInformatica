@@ -7,9 +7,8 @@ class PrismaRectangular {
 	Vector3D p2;
 	Color RGB;
 	friend class Interaccion;
-public:
-	
 	static int tipoMaterial;
+public:
 	PrismaRectangular(Vector3D coor1, Vector3D coor2);
 	PrismaRectangular();
 	void dibuja();
@@ -19,5 +18,4 @@ public:
 	void setP1_P2(Vector3D a, Vector3D b);
 	static void setMaterial(int t);
 	static int getMaterial();
-
 };

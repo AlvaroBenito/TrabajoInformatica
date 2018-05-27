@@ -10,7 +10,6 @@
 
 class Mundo
 {
-
 	Mapa mapa;
 	Moneda moneda;
 	Moneda moneda2, moneda3;
@@ -23,7 +22,6 @@ class Mundo
 	float velocidadOjo;
 	static float multip;
 public:
-	
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void inicializa();
@@ -32,6 +30,5 @@ public:
 	Vector3D getOjo();
 	float getZapunta();
 	void cambia();
-	
 };
 

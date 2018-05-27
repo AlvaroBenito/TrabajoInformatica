@@ -46,3 +46,6 @@ PrismaRectangular Plataforma::getParedDer() {
 PrismaRectangular Plataforma::getParedIzq() {
 	return MuroIzq;
 }
+void Plataforma::setZ(float zi) {
+	z = zi;
+}
