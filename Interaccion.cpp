@@ -36,7 +36,7 @@ bool Interaccion::choqueParedes(PrismaRectangular paredDer,PrismaRectangular par
 	return false;
 }
 bool Interaccion::cogerMoneda(Moneda mon, Personaje &p) {
-	if (p.getPos().z <  mon.getPos().z-1 && p.getPos().z >  mon.getPos().z-3) {//-2 para que la interaccion de cogerla sea mas fluida
+	if (p.getPos().z <  mon.getPos().z+1 && p.getPos().z >  mon.getPos().z-1) {//-2 para que la interaccion de cogerla sea mas fluida
 		if ((int)p.getPos().x == (int)mon.getPos().x) {
 			if (fabsf(p.getPos().y-mon.getPos().y)<0.7) {
 				p.sumaMoneda();
