@@ -1,6 +1,9 @@
+#include <stdlib.h>
 #include "Personaje.h"
 #include "glut.h"
-Personaje::Personaje():escudo(false),contMonedas(0),vidas(2),centro(true) {
+#include <stdio.h>
+int Personaje::contMonedas = 0;
+Personaje::Personaje():escudo(false),vidas(2),centro(true) {
 	posicion.z = -30;
 	posicion.y = 3.9;
 	posicion.x = 0;
@@ -25,4 +28,14 @@ void Personaje::salta() {
 	if(salto==true)
 		velocidad.y = 0.6f;
 	salto = false;
+}
+int Personaje::getVidas() {
+	return vidas;
+}
+int Personaje::getContMonedas() {
+	return contMonedas;
+}
+void Personaje::sumaMoneda() {
+	contMonedas++;
+	printf("%d", contMonedas);
 }

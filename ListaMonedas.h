@@ -13,14 +13,15 @@ public:
 	bool agregar(Moneda *e);
 	void dibuja();
 	void rotar();
-	void rebote(Personaje personaje);
+	void cogerMonedas(Personaje personaje);
 
 	void generadorMonedas(float coordz);
 	void descructorMonedas(float coordz);
-	void añadirMoneda(float coordz);
+	void añadirMoneda(float coordz,float mult);
+	void eliminar(int index);
 
 private:
 	Moneda * lista[MAX_MONEDAS];
 	int    numero;
-	bool agr;
+	bool agr;//True->se pueden agregar monedas, False-> No se pueden agregar monedas
 };

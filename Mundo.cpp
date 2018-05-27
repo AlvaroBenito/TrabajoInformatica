@@ -23,6 +23,7 @@ void Mundo::mueve() {
 	personaje.mueve(velocidadOjo);
 	z_apunta += velocidadOjo;
 	monedas.rotar();
+	monedas.cogerMonedas(personaje);
 	Interaccion::reboteSuelo(mapa.getPlat(0).getSuelo(), personaje);
 	Interaccion::mueveCentro(mapa.getPlat(0).getSuelo(), personaje);
 	Interaccion::choqueParedes(mapa.getPlat(0).getParedDer(),mapa.getPlat(0).getParedIzq(),personaje);
@@ -47,7 +48,7 @@ float Mundo::getZapunta() {
 }
 void Mundo::cambia() {
 	mapa.cambia(multip);
-	monedas.añadirMoneda(getOjo().z);
+	monedas.añadirMoneda(getOjo().z,multip);
 	monedas.descructorMonedas(getOjo().z-10.0f);
 	
 }

@@ -3,7 +3,7 @@
 class Personaje :public Elemento {
 	int vidas;
 	bool escudo;
-	int contMonedas;
+	static int contMonedas;
 	friend class Interaccion;
 	float aceleracionY;
 	bool centro;//variable para saber si el personaje esta en el carril central
@@ -13,5 +13,7 @@ public:
 	void dibuja();
 	void gira(bool der);
 	int getVidas();
+	int getContMonedas();
+	void sumaMoneda();
 	void salta();
 };

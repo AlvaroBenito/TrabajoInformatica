@@ -1,5 +1,4 @@
 #include "Interaccion.h"
-#include <stdio.h>
 bool Interaccion::reboteSuelo(PrismaRectangular suelo, Personaje &p) {
 	if (p.posicion.y < suelo.p2.y+0.5f) {
 		p.posicion.y = suelo.p2.y+0.5f ;
@@ -31,5 +30,14 @@ bool Interaccion::choqueParedes(PrismaRectangular paredDer,PrismaRectangular par
 		return true;
 	}
 	
+	return false;
+}
+bool Interaccion::cogerMoneda(Moneda mon, Personaje &p) {
+	if (p.getPos().z <  mon.getPos().z-2 && p.getPos().z >  mon.getPos().z-4) {//-2 para que la interaccion de cogerla sea mas fluida
+		if ((int)p.getPos().x == (int)mon.getPos().x) {
+			p.sumaMoneda();
+			return true;
+		}
+	}
 	return false;
 }
