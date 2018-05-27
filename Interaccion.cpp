@@ -1,7 +1,10 @@
 #include "Interaccion.h"
+#include <math.h>
+#include <stdio.h>
 bool Interaccion::reboteSuelo(PrismaRectangular suelo, Personaje &p) {
 	if (p.posicion.y < suelo.p2.y+0.5f) {
-		p.posicion.y = suelo.p2.y+0.5f ;
+		p.velocidad.y = 0;
+		p.posicion.y = suelo.p2.y + 0.5f;
 		p.salto = true;
 		return true;
 	}
@@ -33,10 +36,12 @@ bool Interaccion::choqueParedes(PrismaRectangular paredDer,PrismaRectangular par
 	return false;
 }
 bool Interaccion::cogerMoneda(Moneda mon, Personaje &p) {
-	if (p.getPos().z <  mon.getPos().z-2 && p.getPos().z >  mon.getPos().z-4) {//-2 para que la interaccion de cogerla sea mas fluida
+	if (p.getPos().z <  mon.getPos().z-1 && p.getPos().z >  mon.getPos().z-3) {//-2 para que la interaccion de cogerla sea mas fluida
 		if ((int)p.getPos().x == (int)mon.getPos().x) {
-			p.sumaMoneda();
-			return true;
+			if (fabsf(p.getPos().y-mon.getPos().y)<0.7) {
+				p.sumaMoneda();
+				return true;
+			}
 		}
 	}
 	return false;

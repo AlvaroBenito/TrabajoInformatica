@@ -5,7 +5,6 @@ class Personaje :public Elemento {
 	bool escudo;
 	static int contMonedas;
 	friend class Interaccion;
-	float aceleracionY;
 	bool centro;//variable para saber si el personaje esta en el carril central
 	bool salto;//Variable para comprobar si puede o no saltar
 public:

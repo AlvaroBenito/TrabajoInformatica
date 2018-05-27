@@ -38,12 +38,13 @@ void ListaMonedas::cogerMonedas(Personaje p) {
 		if (aux) {
 			eliminar(i);
 		}
+		
 	}
 }
 void ListaMonedas::generadorMonedas(float coordz){
 	float pos = (float)ETSIDI::lanzaDado(4) - 2;//como la distancia entre cada carril es 1, se aprovecha para obtener facilmente uno de los numeros: -1,0,1 de los tres carriles
 		for (float i = coordz-50; i > coordz - 85; i = i - 5) {
-			Moneda* aux = new Moneda(pos, 1.4f, i);
+			Moneda* aux = new Moneda(pos, 0.96f, i);
 			agregar(aux);
 		}
 }
@@ -64,7 +65,7 @@ void ListaMonedas::añadirMoneda(float coorz,float mult) {
 	static float pos = (float)ETSIDI::lanzaDado(4) - 2;
 	static float cuentaMon = 50;
 	if (agr) {
-		Moneda *aux = new Moneda(pos, 1.4f, coorz - 120);
+		Moneda *aux = new Moneda(pos, 0.96f, coorz - 120);
 		agregar(aux);
 		agr = false;//Despues de crear una moneda, se espera para poder crear la siguiente
 		grupo--;

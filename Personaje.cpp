@@ -5,10 +5,10 @@
 int Personaje::contMonedas = 0;
 Personaje::Personaje():escudo(false),vidas(2),centro(true) {
 	posicion.z = -30;
-	posicion.y = 3.9;
+	posicion.y = 1.4;
 	posicion.x = 0;
 	velocidad.x = 0;
-	velocidad.y = -0.1;
+	velocidad.y = 0;
 	velocidad.z = -0.4;
 }
 void Personaje::dibuja() {
