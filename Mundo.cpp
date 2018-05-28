@@ -5,6 +5,7 @@ void Mundo::dibuja(){
 	personaje.dibuja();
 	mapa.dibuja();
 	monedas.dibuja();
+	obstaculos.dibuja();
 	portal.dibuja();//Tiene que ser el ultimo en dibujarse para que funcione bien la transparencia
 	if (ojo.z < portal.getZ()) {
 		static int a = 1;//Para cambiar texturas cuando se atraviesa portal
@@ -35,10 +36,10 @@ void Mundo::inicializa() {
 	ojo.z = -10.0f;
 	z_apunta = -100.0f;
 	velocidadOjo = -0.4f;
-	Vector3D pos(0.0f, 1.7f, -40.0f);
-	Vector3D pos2(1.0f, 1.7f, -40.0f);
-	Vector3D pos3(-1.0f, 1.7f, -40.0f);
 	monedas.generadorMonedas(getOjo().z);
+	//Obstaculo * aux = new Obstaculo(-40);
+	//obstaculos.agregar(aux);
+
 }
 Vector3D Mundo::getOjo() {
 	return ojo;
@@ -50,6 +51,9 @@ void Mundo::cambia() {
 	mapa.cambia(multip);
 	monedas.añadirMoneda(getOjo().z,multip);
 	monedas.descructorMonedas(getOjo().z-10.0f);
+	obstaculos.destructorObstaculos(getOjo().z-10.0f);
+	if(portal.getZ()+40>ojo.z>portal.getZ()+35)
+		obstaculos.generadorObstaculos(portal.getZ());
 	
 }
 void Mundo::tecla(unsigned char key) {

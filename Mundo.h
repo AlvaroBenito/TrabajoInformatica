@@ -7,6 +7,7 @@
 #include "Vector3D.h"
 #include "Portal.h"
 #include "ListaMonedas.h"
+#include "ListaObstaculos.h"
 
 class Mundo
 {
@@ -14,6 +15,7 @@ class Mundo
 	Moneda moneda;
 	Moneda moneda2, moneda3;
 	ListaMonedas monedas;
+	ListaObstaculos obstaculos;
 	Bonus bonus;
 	Personaje personaje;
 	Portal portal;
