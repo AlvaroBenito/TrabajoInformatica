@@ -4,14 +4,11 @@
 #include "PrismaRectangular.h"
 
 
-class Obstaculo : public Elemento, public PrismaRectangular
-{
+class Obstaculo : public Elemento, public PrismaRectangular{
 public:
-	
 	Obstaculo();
 	Obstaculo(float coordz);
 	~Obstaculo();
 	//void dibuja();
-	
 };
 

@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "ETSIDI.h"
 #include "Interaccion.h"
+#include "MonedaEspecial.h"
 ListaMonedas::ListaMonedas()
 {
 
@@ -65,8 +66,17 @@ void ListaMonedas::añadirMoneda(float coorz,float mult) {
 	static float pos = (float)ETSIDI::lanzaDado(4) - 2;
 	static float cuentaMon = 50;
 	if (agr) {
-		Moneda *aux = new Moneda(pos, 0.96f, coorz - 120);
-		agregar(aux);
+		bool monedaEsp = false;
+		int num = ETSIDI::lanzaDado(8);
+		if (num == 1) monedaEsp = true;
+		if (monedaEsp) {
+			Moneda *aux1 = new MonedaEspecial(pos, 0.96f, coorz - 120);
+			agregar(aux1);
+		}
+		else {
+			Moneda *aux2 = new Moneda(pos, 0.96f, coorz - 120);
+			agregar(aux2);
+		}
 		agr = false;//Despues de crear una moneda, se espera para poder crear la siguiente
 		grupo--;
 	}

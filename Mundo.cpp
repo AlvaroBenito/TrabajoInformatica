@@ -1,11 +1,15 @@
 #include "Mundo.h"
 #include "Interaccion.h"
+#include "Texto.h"
 float Mundo::multip = 1;//Para construir adecuadamente las plataformas
 void Mundo::dibuja(){
 	personaje.dibuja();
 	mapa.dibuja();
 	monedas.dibuja();
 	obstaculos.dibuja();
+	Texto::imprimeMonedas(Texto::cadena(personaje.getContMonedas()),ojo.z-20);
+	Texto::imprimeDistancia(Texto::cadena((int)ojo.z),velocidadOjo,ojo.z-20);
+	Texto::imprimeVidas(Texto::cadena(personaje.getVidas()),ojo.z-20);
 	portal.dibuja();//Tiene que ser el ultimo en dibujarse para que funcione bien la transparencia
 	if (ojo.z < portal.getZ()) {
 		static int a = 1;//Para cambiar texturas cuando se atraviesa portal
@@ -52,7 +56,7 @@ void Mundo::cambia() {
 	monedas.añadirMoneda(getOjo().z,multip);
 	monedas.descructorMonedas(getOjo().z-10.0f);
 	obstaculos.destructorObstaculos(getOjo().z-10.0f);
-	if(portal.getZ()+40>ojo.z>portal.getZ()+35)
+	if(portal.getZ()+40>ojo.z && ojo.z>portal.getZ()+35)
 		obstaculos.generadorObstaculos(portal.getZ());
 	
 }

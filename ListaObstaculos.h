@@ -4,10 +4,7 @@
 #define MAX 2
 
 
-class ListaObstaculos
-{
-
-
+class ListaObstaculos{
 	Obstaculo * lista[MAX];
 	int numero;
 

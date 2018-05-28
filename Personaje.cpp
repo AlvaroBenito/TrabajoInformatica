@@ -26,7 +26,7 @@ void Personaje::gira(bool der){//Der=true->gira derecha, Der=false->gira izquier
 }
 void Personaje::salta() {
 	if(salto==true)
-		velocidad.y = 0.6f;
+		velocidad.y = 0.45f;
 	salto = false;
 }
 int Personaje::getVidas() {
