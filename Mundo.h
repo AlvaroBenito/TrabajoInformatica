@@ -8,6 +8,9 @@
 #include "Portal.h"
 #include "ListaMonedas.h"
 #include "ListaObstaculos.h"
+#include "Interaccion.h"
+#include "Texto.h"
+#include "glut.h"
 
 class Mundo
 {

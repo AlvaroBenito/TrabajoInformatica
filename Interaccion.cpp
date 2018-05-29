@@ -46,3 +46,20 @@ bool Interaccion::cogerMoneda(Moneda mon, Personaje &p) {
 	}
 	return false;
 }
+
+bool Interaccion::reboteObstaculo(Obstaculo *obstaculo, Personaje &p) {
+	if ((obstaculo->getP1().z > p.posicion.z && p.posicion.z > obstaculo->getP2().z) && (p.posicion.y+RADIO_MONEDA_OUT < obstaculo->getP2().y))
+		return true;
+	return false;
+}
+
+bool Interaccion::reboteObstaculo(ListaObstaculos obstaculos, Personaje &p) {
+	for (int i = 0; i < obstaculos.numero; i++) {
+		if (Interaccion::reboteObstaculo(obstaculos.lista[i], p)) {
+			p.restaVida();
+			p.posicion.y = 10;//Es Para comprobar que detecta el choque con el obstaculo.
+			return true;
+		}
+	}
+	return 0;
+}

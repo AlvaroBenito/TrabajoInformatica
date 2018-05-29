@@ -7,7 +7,7 @@
 class ListaObstaculos{
 	Obstaculo * lista[MAX];
 	int numero;
-
+	friend class Interaccion;
 public:
 	ListaObstaculos();
 	~ListaObstaculos();
@@ -15,5 +15,6 @@ public:
 	void dibuja();
 	void generadorObstaculos(float coordz);
 	void destructorObstaculos(float coordz);
+	
 };
 

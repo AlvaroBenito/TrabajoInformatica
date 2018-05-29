@@ -1,6 +1,5 @@
 #include "Mundo.h"
-#include "Interaccion.h"
-#include "Texto.h"
+
 float Mundo::multip = 1;//Para construir adecuadamente las plataformas
 void Mundo::dibuja(){
 	personaje.dibuja();
@@ -32,6 +31,7 @@ void Mundo::mueve() {
 	Interaccion::reboteSuelo(mapa.getPlat(0).getSuelo(), personaje);
 	Interaccion::mueveCentro(mapa.getPlat(0).getSuelo(), personaje);
 	Interaccion::choqueParedes(mapa.getPlat(0).getParedDer(),mapa.getPlat(0).getParedIzq(),personaje);
+	Interaccion::reboteObstaculo(obstaculos, personaje);
 }
 
 void Mundo::inicializa() {
@@ -64,4 +64,20 @@ void Mundo::tecla(unsigned char key) {
 	if (key == 'a') personaje.gira(false);
 	if (key == 'd') personaje.gira(true); 
 	if (key == ' ') personaje.salta();
+}
+
+void Mundo::teclaEspecial(unsigned char key) {
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		personaje.gira(false);
+		break;
+	case GLUT_KEY_RIGHT:
+		personaje.gira(true);
+		break;
+	case GLUT_KEY_UP:
+		personaje.salta();
+		break;
+
+	}
 }
