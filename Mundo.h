@@ -1,7 +1,6 @@
 #pragma once
 #include "Mapa.h"
 #include "Bonus.h"
-#include "Moneda.h"
 #include "Personaje.h"
 #include "Plataforma.h"
 #include "Vector3D.h"
@@ -11,14 +10,14 @@
 #include "Interaccion.h"
 #include "Texto.h"
 #include "glut.h"
+#include "ListaTrampas.h"
 
 class Mundo
 {
 	Mapa mapa;
-	Moneda moneda;
-	Moneda moneda2, moneda3;
 	ListaMonedas monedas;
 	ListaObstaculos obstaculos;
+	ListaTrampas trampas;
 	Bonus bonus;
 	Personaje personaje;
 	Portal portal;
