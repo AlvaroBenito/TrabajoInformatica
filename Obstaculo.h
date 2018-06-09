@@ -10,5 +10,6 @@ public:
 	Obstaculo(float coordz);
 	~Obstaculo();
 	//void dibuja();
+	friend class Interaccion;
 };
 

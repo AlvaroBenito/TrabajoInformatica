@@ -1,5 +1,5 @@
 #include "ListaTrampas.h"
-
+#include "SueloMalo.h"
 ListaTrampas::ListaTrampas()
 {
 }
@@ -27,19 +27,29 @@ void ListaTrampas::dibuja()
 
 void ListaTrampas::añadirTrampa(float coordz,float mult) {
 	static float frecuencia = 250;
-
-	if (agr) {
-		for (int i = 0; i < 4; i++) {
-			int pos1 = ETSIDI::lanzaDado(4) - 2;
-			int pos2 = ETSIDI::lanzaDado(4) - 2;
-			while (pos2 == pos1) {
-				pos2 = ETSIDI::lanzaDado(4) - 2;
-			}
-			agregar(new Trampa((float)pos1, coordz - 240-10*i));
-			agregar(new Trampa((float)pos2, coordz - 240-10*i));
-
+	int num = ETSIDI::lanzaDado(6);
+	if (num < 3) {
+		if (agr) {
+			agregar(new SueloMalo(-1, coordz - 100));
+			agregar(new SueloMalo(0, coordz - 100));
+			agregar(new SueloMalo(1, coordz - 100));
+			agr = false;
 		}
-		agr = false;
+	}
+	else {
+		if (agr) {
+			for (int i = 0; i < 3; i++) {
+				int pos1 = ETSIDI::lanzaDado(4) - 2;
+				int pos2 = ETSIDI::lanzaDado(4) - 2;
+				while (pos2 == pos1) {
+					pos2 = ETSIDI::lanzaDado(4) - 2;
+				}
+				agregar(new Trampa((float)pos1, coordz - 240 - 10 * i));
+				agregar(new Trampa((float)pos2, coordz - 240 - 10 * i));
+
+			}
+			agr = false;
+		}
 	}
 	frecuencia -= 1;
 	if (frecuencia < 0) {//Frecuencia de creacion de monedas dentro de un grupo de monedas

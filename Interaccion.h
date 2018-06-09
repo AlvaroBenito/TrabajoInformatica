@@ -3,6 +3,7 @@
 #include "Mapa.h"
 #include "Moneda.h"
 #include "ListaObstaculos.h"
+#include "ListaTrampas.h"
 
 class Interaccion {
 public:
@@ -12,4 +13,6 @@ public:
 	static bool cogerMoneda(Moneda mon, Personaje &p);
 	static bool reboteObstaculo(Obstaculo *obstaculo, Personaje &p);
 	static bool reboteObstaculo(ListaObstaculos obstaculo, Personaje &p);
+	static bool condicionDibujo(Plano *p, Obstaculo *o);
+	static bool condicionDibujo(ListaTrampas &t, ListaObstaculos o);
 };

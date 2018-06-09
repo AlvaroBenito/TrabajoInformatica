@@ -33,7 +33,7 @@ void ListaObstaculos::añadirObstaculo(float coordz,float mult) {
 		Obstaculo *aux = new Obstaculo(coordz - 240);
 		agregar(aux);
 		int num = ETSIDI::lanzaDado(5);
-		frecuencia = (num+3)*40/mult;
+		frecuencia = (num+3)*60/mult;
 	}
 	
 }

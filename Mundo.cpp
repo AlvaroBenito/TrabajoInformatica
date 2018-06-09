@@ -35,6 +35,7 @@ void Mundo::mueve() {
 	Interaccion::mueveCentro(mapa.getPlat(0).getSuelo(), personaje);
 	Interaccion::choqueParedes(mapa.getPlat(0).getParedDer(),mapa.getPlat(0).getParedIzq(),personaje);
 	Interaccion::reboteObstaculo(obstaculos, personaje);
+	Interaccion::condicionDibujo(trampas, obstaculos);
 }
 
 void Mundo::inicializa() {
@@ -62,7 +63,7 @@ void Mundo::cambia() {
 	obstaculos.añadirObstaculo(getOjo().z, multip);
 	obstaculos.destructorObstaculos(getOjo().z-10.0f);
 	trampas.añadirTrampa(getOjo().z,multip);
-	trampas.descructorTrampas(getOjo().z - 10);
+	trampas.descructorTrampas(getOjo().z +200);
 	
 }
 void Mundo::tecla(unsigned char key) {

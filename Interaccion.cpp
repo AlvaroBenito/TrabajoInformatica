@@ -63,3 +63,19 @@ bool Interaccion::reboteObstaculo(ListaObstaculos obstaculos, Personaje &p) {
 	}
 	return 0;
 }
+bool Interaccion::condicionDibujo(Plano *p, Obstaculo *o) {
+	if (abs(o->p1.z - p->limite1.z) < 10) {
+		p->limite1.z = 0;
+		p->limite2.z = 0;
+		return true;
+	}
+	return false;
+}
+bool Interaccion::condicionDibujo(ListaTrampas &t, ListaObstaculos o) {
+	for (int i = 0; i < t.numero; i++) {
+		for (int j = 0; j < o.numero; j++) {
+			condicionDibujo(t.lista[i], o.lista[j]);
+		}
+	}
+	return true;
+}
