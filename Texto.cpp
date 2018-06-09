@@ -14,21 +14,24 @@ void Texto::printxyz(char *txt, float x, float y, float z) {
 	glPopMatrix();
 }
 void Texto::imprimeMonedas(char *txt,float z) {
+	char m[8] = "Monedas";
 	ETSIDI::setTextColor(255, 255, 255);
 	ETSIDI::setFont("Fuentes/Bitwise.ttf",20);
-	printxyz("Monedas",4,-3,z);
+	printxyz(m,4,-3,z);
 	printxyz(txt,7,-3,z);
 }
 void Texto::imprimeVidas(char *txt, float z) {
+	char m[6] = "Vidas";
 	ETSIDI::setTextColor(255, 255, 255);
 	ETSIDI::setFont("Fuentes/Bitwise.ttf", 20);
-	printxyz("Vidas", -7, 8, z);
+	printxyz(m, -7, 8, z);
 	printxyz(txt, -4, 8, z);
 }
 void Texto::imprimeDistancia(char *txt,float vel,float z) {
+	char m[10] = "Distancia";
 	ETSIDI::setTextColor(255, 255, 255);
 	ETSIDI::setFont("Fuentes/Bitwise.ttf", 20);
-	printxyz("Distancia",-7,-3,z);
+	printxyz(m,-7,-3,z);
 	printxyz(txt,-4,-3,z);
 
 }
