@@ -1,5 +1,6 @@
 #include "Mundo.h"
-
+#include "Texto.h"
+#include "Interaccion.h"
 float Mundo::multip = 1;//Para construir adecuadamente las plataformas
 void Mundo::dibuja(){
 	personaje.dibuja();
@@ -58,10 +59,9 @@ void Mundo::cambia() {
 	mapa.cambia(multip);
 	monedas.añadirMoneda(getOjo().z,multip);
 	monedas.descructorMonedas(getOjo().z-10.0f);
+	obstaculos.añadirObstaculo(getOjo().z, multip);
 	obstaculos.destructorObstaculos(getOjo().z-10.0f);
-	if(portal.getZ()+40>ojo.z && ojo.z>portal.getZ()+35)
-		obstaculos.generadorObstaculos(portal.getZ());
-	trampas.generadorTrampas(getOjo().z);
+	trampas.añadirTrampa(getOjo().z,multip);
 	trampas.descructorTrampas(getOjo().z - 10);
 	
 }

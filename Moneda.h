@@ -5,12 +5,14 @@
 class Moneda :public Elemento {
 protected:
 	static float anguloRotacion;
+	int puntos;
 public:
 	Moneda();
 	Moneda(float posx, float posy, float posz, float vel = 0);
 	void setPos(Vector3D pos);
 	virtual void dibuja();
 	static void sumaAnguloRot(float theta);
+	int getPuntos();
 };
 
 

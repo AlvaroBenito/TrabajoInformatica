@@ -17,7 +17,6 @@ Trampa::~Trampa()
 
 void Trampa::dibuja(){
 	Plano::dibuja();
-	
 	glColor3ub(255, 255, 255);
 	glTranslatef(limite1.x+0.5, limite1.y, limite1.z-0.5);
 	glRotatef(-90, 1, 0, 0);

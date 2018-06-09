@@ -4,7 +4,6 @@
 class Trampa : public Plano 
 {
 public:
-
 	Trampa();
 	Trampa(float coordx, float coordz );
 	~Trampa();

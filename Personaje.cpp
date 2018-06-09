@@ -35,7 +35,7 @@ int Personaje::getVidas() {
 int Personaje::getContMonedas() {
 	return contMonedas;
 }
-void Personaje::sumaMoneda() {
-	contMonedas++;
+void Personaje::sumaMoneda(int mult) {
+	contMonedas+=mult;
 	printf("%d", contMonedas);
 }

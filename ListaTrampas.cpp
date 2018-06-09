@@ -1,7 +1,5 @@
 #include "ListaTrampas.h"
 
-
-
 ListaTrampas::ListaTrampas()
 {
 }
@@ -12,7 +10,7 @@ ListaTrampas::~ListaTrampas()
 }
 
 
-bool ListaTrampas::agregar(Trampa *trampa)
+bool ListaTrampas::agregar(Plano *trampa)
 {
 	if (numero<MAX_TRAMPAS)
 		lista[numero++] = trampa;
@@ -27,11 +25,26 @@ void ListaTrampas::dibuja()
 		lista[i]->dibuja();
 }
 
-void ListaTrampas::generadorTrampas(float coordz) {
-	
-	for (float i = coordz - 50; i > coordz - 80; i = i - 5) {
-		Trampa* aux = new Trampa(ETSIDI::lanzaDado(4) - 2, i);
-		agregar(aux);
+void ListaTrampas::añadirTrampa(float coordz,float mult) {
+	static float frecuencia = 250;
+
+	if (agr) {
+		for (int i = 0; i < 4; i++) {
+			int pos1 = ETSIDI::lanzaDado(4) - 2;
+			int pos2 = ETSIDI::lanzaDado(4) - 2;
+			while (pos2 == pos1) {
+				pos2 = ETSIDI::lanzaDado(4) - 2;
+			}
+			agregar(new Trampa((float)pos1, coordz - 240-10*i));
+			agregar(new Trampa((float)pos2, coordz - 240-10*i));
+
+		}
+		agr = false;
+	}
+	frecuencia -= 1;
+	if (frecuencia < 0) {//Frecuencia de creacion de monedas dentro de un grupo de monedas
+		frecuencia = 250 / mult;//Mult para que dependa de la velocidad del ojo
+		agr = true;//Cuando pasa el tiempo necesario, se permite crear una moneda
 	}
 }
 

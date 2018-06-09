@@ -13,7 +13,7 @@ public:
 	void gira(bool der);
 	int getVidas();
 	int getContMonedas();
-	void sumaMoneda();
+	void sumaMoneda(int mult);
 	void salta();
 	void restaVida() { vidas--; }
 };

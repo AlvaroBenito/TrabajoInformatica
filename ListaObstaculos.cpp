@@ -26,18 +26,16 @@ void ListaObstaculos::dibuja()
 		lista[i]->dibuja();
 }
 
-void ListaObstaculos::generadorObstaculos(float coordz) {
-
-	if (ETSIDI::lanzaDado(3) - 1) {
-		for (int i = -60; i > -200; i -= 120) {
-			Obstaculo * aux = new Obstaculo(coordz + i);
-			agregar(aux);
-		}
-	}
-	else {
-		Obstaculo * aux = new Obstaculo(coordz - 140);
+void ListaObstaculos::añadirObstaculo(float coordz,float mult) {
+	static float frecuencia = 30;
+	frecuencia-=1;
+	if (frecuencia < 0) {
+		Obstaculo *aux = new Obstaculo(coordz - 240);
 		agregar(aux);
+		int num = ETSIDI::lanzaDado(5);
+		frecuencia = (num+3)*40/mult;
 	}
+	
 }
 
 void ListaObstaculos::destructorObstaculos(float coordz) {

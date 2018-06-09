@@ -22,13 +22,11 @@ Moneda::Moneda(){
 
 }
 
-Moneda::Moneda(float posx, float posy, float posz,float vel) {
+Moneda::Moneda(float posx, float posy, float posz,float vel):puntos(1) {
 	posicion.x = posx;
 	posicion.y = posy;
 	posicion.z = posz;
 	velocidad = vel;
-	
-
 }
 
 void Moneda::setPos(Vector3D pos) {
@@ -37,4 +35,7 @@ void Moneda::setPos(Vector3D pos) {
 }
 void Moneda::sumaAnguloRot(float theta) {
 	anguloRotacion += theta;
+}
+int Moneda::getPuntos() {
+	return puntos;
 }

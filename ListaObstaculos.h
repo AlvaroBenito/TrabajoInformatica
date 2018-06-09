@@ -1,7 +1,7 @@
 #pragma once
 #include "obstaculo.h"
 #include "ETSIDI.h"
-#define MAX 2
+#define MAX 15
 
 
 class ListaObstaculos{
@@ -13,7 +13,7 @@ public:
 	~ListaObstaculos();
 	bool agregar(Obstaculo *e);
 	void dibuja();
-	void generadorObstaculos(float coordz);
+	void añadirObstaculo(float coordz,float mult);
 	void destructorObstaculos(float coordz);
 	
 };
