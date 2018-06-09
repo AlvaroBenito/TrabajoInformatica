@@ -4,7 +4,7 @@ Plano::Plano(){
 
 }
 
-Plano::Plano(Vector3D coor1, Vector3D coor2) {
+Plano::Plano(Vector3D coor1, Vector3D coor2):impacto(false) {
 	limite1 = coor1;
 	limite2 = coor2;
 	tipoMaterial = 0;

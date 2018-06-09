@@ -15,5 +15,5 @@ public:
 	int getContMonedas();
 	void sumaMoneda(int mult);
 	void salta();
-	void restaVida() { vidas--; }
+	void restaVida();
 };

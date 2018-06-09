@@ -1,6 +1,7 @@
 #include "Interaccion.h"
 #include <math.h>
 #include <stdio.h>
+#include <iostream>
 bool Interaccion::reboteSuelo(PrismaRectangular suelo, Personaje &p) {
 	if (p.posicion.y < suelo.p2.y+0.5f) {
 		p.velocidad.y = 0;
@@ -48,7 +49,7 @@ bool Interaccion::cogerMoneda(Moneda mon, Personaje &p) {
 }
 
 bool Interaccion::reboteObstaculo(Obstaculo *obstaculo, Personaje &p) {
-	if ((obstaculo->getP1().z > p.posicion.z && p.posicion.z > obstaculo->getP2().z) && (p.posicion.y+RADIO_MONEDA_OUT < obstaculo->getP2().y))
+	if ((obstaculo->getP1().z+1 > p.posicion.z && p.posicion.z > obstaculo->getP2().z-1) && (p.posicion.y < obstaculo->getP2().y))
 		return true;
 	return false;
 }
@@ -77,5 +78,23 @@ bool Interaccion::condicionDibujo(ListaTrampas &t, ListaObstaculos o) {
 			condicionDibujo(t.lista[i], o.lista[j]);
 		}
 	}
+	return true;
+}
+bool Interaccion::colisionTrampas(Plano *plano, Personaje &p) {
+	if (plano->limite1.z > p.posicion.z && plano->limite2.z < p.posicion.z) {
+		if (abs(p.posicion.y - plano->limite1.y) < 1.0f) {
+			if (p.posicion.x > plano->limite1.x && p.posicion.x < plano->limite2.x) {
+				if (plano->impacto == false) {
+					p.restaVida();
+				}
+				plano->impacto = true;
+			}
+		}
+	}
+	return true;
+}
+bool Interaccion::colisionTrampas(ListaTrampas t, Personaje &p) {
+	for (int i = 0; i < t.numero; i++)
+		colisionTrampas(t.lista[i], p);
 	return true;
 }

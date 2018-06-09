@@ -12,7 +12,16 @@ Personaje::Personaje():escudo(false),vidas(2),centro(true) {
 	velocidad.z = -0.4;
 }
 void Personaje::dibuja() {
-	glColor3ub(255, 255, 0);
+	switch (vidas) {
+	case 2:
+		glColor3ub(0, 255, 0);
+		break;
+	case 1:
+		glColor3ub(255, 255, 0);
+		break;
+	default:
+		glColor3ub(255, 0, 0);
+	}
 	glTranslatef(posicion.x, posicion.y, posicion.z);
 	glutSolidSphere(0.4, 20, 20);
 	glTranslatef(-posicion.x, -posicion.y, -posicion.z);
@@ -38,4 +47,8 @@ int Personaje::getContMonedas() {
 void Personaje::sumaMoneda(int mult) {
 	contMonedas+=mult;
 	printf("%d", contMonedas);
+}
+void Personaje::restaVida(){
+	if(vidas!=0)
+		vidas--;
 }

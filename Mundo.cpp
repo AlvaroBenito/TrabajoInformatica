@@ -36,6 +36,7 @@ void Mundo::mueve() {
 	Interaccion::choqueParedes(mapa.getPlat(0).getParedDer(),mapa.getPlat(0).getParedIzq(),personaje);
 	Interaccion::reboteObstaculo(obstaculos, personaje);
 	Interaccion::condicionDibujo(trampas, obstaculos);
+	Interaccion::colisionTrampas(trampas, personaje);
 }
 
 void Mundo::inicializa() {

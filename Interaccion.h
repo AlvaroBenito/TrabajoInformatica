@@ -15,4 +15,6 @@ public:
 	static bool reboteObstaculo(ListaObstaculos obstaculo, Personaje &p);
 	static bool condicionDibujo(Plano *p, Obstaculo *o);
 	static bool condicionDibujo(ListaTrampas &t, ListaObstaculos o);
+	static bool colisionTrampas(Plano *plano, Personaje &p);
+	static bool colisionTrampas(ListaTrampas t, Personaje &p);
 };

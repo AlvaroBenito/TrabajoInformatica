@@ -10,7 +10,7 @@ protected:
 	Vector3D limite1;
 	Vector3D limite2;
 	int tipoMaterial;
-	
+	bool impacto; //Variable que usan las clases hijas de "Plano" para que solo se aplique una colision con el personaje en vez de varias
 public:
 	Plano();
 	Plano(Vector3D coor1, Vector3D coor2);
