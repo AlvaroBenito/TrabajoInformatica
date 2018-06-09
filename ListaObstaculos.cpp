@@ -2,7 +2,7 @@
 
 
 
-ListaObstaculos::ListaObstaculos()
+ListaObstaculos::ListaObstaculos():numero(0)
 {
 }
 

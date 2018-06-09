@@ -1,6 +1,6 @@
 #include "ListaTrampas.h"
 #include "SueloMalo.h"
-ListaTrampas::ListaTrampas()
+ListaTrampas::ListaTrampas():numero(0)
 {
 }
 
@@ -30,9 +30,9 @@ void ListaTrampas::añadirTrampa(float coordz,float mult) {
 	int num = ETSIDI::lanzaDado(6);
 	if (num < 3) {
 		if (agr) {
-			agregar(new SueloMalo(-1, coordz - 100));
-			agregar(new SueloMalo(0, coordz - 100));
-			agregar(new SueloMalo(1, coordz - 100));
+			agregar(new SueloMalo(ETSIDI::lanzaDado(4)-2, coordz - 100));
+			//agregar(new SueloMalo(0, coordz - 100));
+			//agregar(new SueloMalo(1, coordz - 100));
 			agr = false;
 		}
 	}

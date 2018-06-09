@@ -20,6 +20,3 @@ private:
 	int    numero;
 	bool agr;//True->se pueden agregar trampas, False-> No se pueden agregar trampas
 };
-
-
-

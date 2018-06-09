@@ -4,14 +4,12 @@
 #include "ETSIDI.h"
 #include "Interaccion.h"
 #include "MonedaEspecial.h"
-ListaMonedas::ListaMonedas()
+ListaMonedas::ListaMonedas():numero(0)
 {
-
 }
 
 ListaMonedas::~ListaMonedas()
 {
-
 }
 
 bool ListaMonedas::agregar(Moneda *moneda)

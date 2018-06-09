@@ -22,7 +22,6 @@ void Mundo::dibuja(){
 		if (a == 3) a = 0;
 	}
 
-
 }
 
 void Mundo::mueve() {

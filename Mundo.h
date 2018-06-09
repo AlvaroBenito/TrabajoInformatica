@@ -18,7 +18,6 @@ class Mundo
 	ListaMonedas monedas;
 	ListaObstaculos obstaculos;
 	ListaTrampas trampas;
-	Bonus bonus;
 	Personaje personaje;
 	Portal portal;
 	Vector3D ojo;
