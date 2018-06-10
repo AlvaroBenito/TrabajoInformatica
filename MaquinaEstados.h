@@ -12,13 +12,11 @@ public:
 	void    mueve();
 	void    dibuja();
 	void cambia();
-	Vector3D getOjo() { return mundo.getOjo(); }
-	float getZapunta() { return mundo.getZapunta(); }
-	
+	Vector3D getOjo();
+	float getZapunta();
 protected:
-	Mundo    mundo;
-	enum Estado{INICIO,JUEGO, GAMEOVER, PAUSA};
+	Mundo    *mundo;
+	enum Estado{INICIO,JUEGO, GAMEOVER,PAUSA};
 	Estado estado;
-	
 };
 

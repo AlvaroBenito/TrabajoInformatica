@@ -8,7 +8,7 @@ void Mundo::dibuja(){
 	monedas.dibuja();
 	obstaculos.dibuja();
 	trampas.dibuja();
-	bonus.dibuja();
+	bonus->dibuja();
 	Texto::imprimeMonedas(Texto::cadena(personaje.getContMonedas()),ojo.z-20);
 	Texto::imprimeDistancia(Texto::cadena((int)ojo.z),velocidadOjo,ojo.z-20);
 	Texto::imprimeVidas(Texto::cadena(personaje.getVidas()),ojo.z-20);
@@ -37,7 +37,13 @@ void Mundo::mueve() {
 	Interaccion::condicionDibujo(trampas, obstaculos);
 	Interaccion::reboteObstaculo(obstaculos, personaje);
 	Interaccion::colisionTrampas(trampas, personaje);
-	Interaccion::cogeBonus(bonus, personaje);
+	Interaccion::redibujaMon(monedas, obstaculos);
+	bool aux=Interaccion::cogeBonus(bonus, personaje);
+	if (aux) {
+		delete bonus;
+		float pos = ETSIDI::lanzaDado(4);
+		bonus= new Bonus(Vector3D(pos - 2.5f, 2.5f, ojo.z-540), Vector3D(pos - 1.5f, 3.5f, ojo.z-542), ETSIDI::lanzaMoneda());
+	}
 }
 
 void Mundo::inicializa() {
@@ -46,8 +52,11 @@ void Mundo::inicializa() {
 	ojo.z = -10.0f;
 	z_apunta = -100.0f;
 	velocidadOjo = -0.4f;
-	monedas.generadorMonedas(getOjo().z);
-
+	Plataforma::setZ(0.0f);
+	PrismaRectangular::setMaterial(0);
+	multip = 1;
+	float pos = ETSIDI::lanzaDado(4);
+	bonus= new Bonus(Vector3D(pos - 2.5f, 2.5f, -240), Vector3D(pos - 1.5f, 3.5f, -242), ETSIDI::lanzaMoneda());
 }
 
 Vector3D Mundo::getOjo() {
@@ -61,20 +70,25 @@ float Mundo::getZapunta() {
 void Mundo::cambia() {
 	mapa.cambia(multip);
 	monedas.añadirMoneda(getOjo().z,multip);
-	monedas.descructorMonedas(getOjo().z-10.0f);
+	monedas.destructorMonedas(getOjo().z+10.0f);
 	obstaculos.añadirObstaculo(getOjo().z, multip);
-	obstaculos.destructorObstaculos(getOjo().z-10.0f);
+	obstaculos.destructorObstaculos(getOjo().z+10.0f);
 	trampas.añadirTrampa(getOjo().z,multip);
-	trampas.descructorTrampas(getOjo().z +200);
-	bonus.añadirBonus(getOjo().z, multip);
-	bonus.destructorBonus(getOjo().z-10.0f);
-	
-	
+	trampas.destructorTrampas(getOjo().z +60.0f);
+	if (bonus->destruye(ojo.z)) {
+		delete bonus;
+		float pos = ETSIDI::lanzaDado(4);
+		bonus= new Bonus(Vector3D(pos - 2.5f, 2.5f, ojo.z-540), Vector3D(pos - 1.5f, 3.5f, ojo.z-542), ETSIDI::lanzaMoneda());
+	}
 }
 void Mundo::tecla(unsigned char key) {
 	if (key == 'a') personaje.gira(false);
 	if (key == 'd') personaje.gira(true); 
 	if (key == ' ') personaje.salta();
+	if (key == 'j')ojo.x += 10;
+	if (key == 'k')ojo.x -= 10;
+	if (key == 'l')ojo.y += 10;
+	if (key == 'm')ojo.y -= 10;
 }
 
 void Mundo::teclaEspecial(unsigned char key) {
@@ -91,4 +105,7 @@ void Mundo::teclaEspecial(unsigned char key) {
 		break;
 
 	}
+}
+Personaje Mundo::getPers() {
+	return personaje;
 }

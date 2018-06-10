@@ -19,7 +19,7 @@ public:
 	void destructorMonedas(float coordz);
 	void añadirMoneda(float coordz,float mult);
 	void eliminar(int index);
-
+	friend class Interaccion;
 private:
 	Moneda * lista[MAX_MONEDAS];
 	int    numero;

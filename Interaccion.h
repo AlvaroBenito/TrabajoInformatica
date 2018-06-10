@@ -6,6 +6,7 @@
 #include "ListaTrampas.h"
 #include "Bonus.h"
 #include "ListaBonus.h"
+#include "ListaMonedas.h"
 class Interaccion {
 public:
 	static bool reboteSuelo(PrismaRectangular suelo, Personaje &p);
@@ -19,5 +20,6 @@ public:
 	static bool colisionTrampas(Plano *plano, Personaje &p);
 	static bool colisionTrampas(ListaTrampas t, Personaje &p);
 	static bool cogeBonus(Bonus *bon, Personaje &p);
-	static bool cogeBonus(ListaBonus b, Personaje &p);
+	static bool redibujaMon(Moneda *mon, PrismaRectangular *o);
+	static bool redibujaMon(ListaMonedas mon, ListaObstaculos obs);
 };

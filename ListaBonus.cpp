@@ -1,16 +1,18 @@
 #include <stdlib.h>
 #include "ListaBonus.h"
 #include "ETSIDI.h"
+ListaBonus::~ListaBonus() {
 
+}
 ListaBonus::ListaBonus():numero(0) {
 	for (int i = 0; i < MAX_BONUS; i++) {
 		lista[i] = NULL;
 	}
 }
-bool ListaBonus::agregar(Bonus *e)
+bool ListaBonus::agregar(Bonus *b)
 {
 	if (numero<MAX_BONUS)
-		lista[numero++] = e;
+		lista[numero++] = b;
 	else
 		return    false;
 	return    true;
@@ -35,7 +37,6 @@ void ListaBonus::añadirBonus(float coordz, float mult) {
 
 }
 void ListaBonus::destructorBonus(float coordz) {
-
 	for (int i = 0; i <numero; i++) {
 		if (coordz < lista[i]->getP1().z-10) {
 			delete lista[i];

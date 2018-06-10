@@ -102,22 +102,26 @@ bool Interaccion::cogeBonus(Bonus *bon, Personaje &p) {
 	if (bon->p1.z > p.posicion.z && bon->p2.z < p.posicion.z) {
 		if (bon->p1.y < p.posicion.y && bon->p2.y > p.posicion.y) {
 			if (bon->p1.x < p.posicion.x&& bon->p2.x > p.posicion.x) {
-				if (bon->tipo)
-					p.sumaVida();
-				else
-					p.escudo = true;
+				p.sumaVida();
 				return true;
 			}
 		}
 	}
+	if (bon->p1.z-20 > p.getPos().z)
+		return true;
 	return false;
 }
-bool Interaccion::cogeBonus(ListaBonus b, Personaje &p) {
-	bool aux;
-	for (int i = 0; i < b.numero; i++) {
-		aux=cogeBonus(b.lista[i], p);
-		if (aux) {
-			b.eliminar(i);
+bool Interaccion::redibujaMon(Moneda *mon, PrismaRectangular *o) {
+	if (abs(mon->posicion.z - o->p1.z) < 10.0f) {
+		mon->posicion.y = 3.0f- abs(mon->posicion.z - o->p1.z)/10;
+		return true;
+	}
+	return false;
+}
+bool Interaccion::redibujaMon(ListaMonedas mon, ListaObstaculos obs) {
+	for (int i = 0; i < mon.numero; i++) {
+		for (int j = 0; j < obs.numero; j++) {
+			redibujaMon(mon.lista[i], obs.lista[j]);
 		}
 	}
 	return true;

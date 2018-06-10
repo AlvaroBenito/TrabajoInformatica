@@ -1,17 +1,14 @@
 #pragma once
 #include "Vector3D.h"
-//Clase base para hacer basicamente todos los elementos moviles, que son: Personaje, Moneda, Bonificacion, Obstaculo,etc
-class Elemento {
-//protected://Protected para que lo use solo las clases heredadas y luego ponemos friend las clases para las interacciones y ese rollo
-	
 
+class Elemento {
 protected:
 	Vector3D posicion;
 	Vector3D velocidad;
 	float aceleracionY;
 public:
 	Elemento();
-	void mueve(float vel);//En obstaculos no se usa necesariamente
+	void mueve(float vel);
 	void setPosZ(float z);
 	Vector3D getPos();
 };

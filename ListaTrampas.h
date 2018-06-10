@@ -2,7 +2,7 @@
 #include "Trampa.h"
 #include "Personaje.h"
 
-#define MAX_TRAMPAS 50
+#define MAX_TRAMPAS 30
 
 class ListaTrampas
 {

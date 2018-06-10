@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "MonedaEspecial.h"
 #include "glut.h"
 #include "ETSIDI.h"

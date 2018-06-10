@@ -22,7 +22,7 @@ void Plano::dibuja() {
 	switch (tipoMaterial) {//Texturas a partir de aqui
 	case 0:
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Portal1.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Mar.png").id);
 		break;
 	case 10:
 		glEnable(GL_TEXTURE_2D);
@@ -43,4 +43,7 @@ void Plano::dibuja() {
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 	return;
+}
+Vector3D Plano::getLim1() {
+	return limite1; 
 }

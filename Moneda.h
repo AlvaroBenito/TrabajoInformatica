@@ -13,6 +13,7 @@ public:
 	virtual void dibuja();
 	static void sumaAnguloRot(float theta);
 	int getPuntos();
+	friend class Interaccion;
 };
 
 

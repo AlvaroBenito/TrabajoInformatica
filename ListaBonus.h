@@ -7,8 +7,8 @@ class ListaBonus {
 	friend class Interaccion;
 public:
 	ListaBonus();
-	//~ListaBonus();
-	bool agregar(Bonus *e);
+	~ListaBonus();
+	bool agregar(Bonus *b);
 	void dibuja();
 	void añadirBonus(float coordz, float mult);
 	void destructorBonus(float coordz);

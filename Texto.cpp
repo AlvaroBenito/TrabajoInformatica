@@ -1,4 +1,3 @@
-
 #define _CRT_SECURE_NO_WARNINGS//El strcpy sin esto no funciona
 #include "Texto.h"
 #include "ETSIDI.h"
