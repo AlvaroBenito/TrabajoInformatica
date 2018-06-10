@@ -57,6 +57,7 @@ bool Interaccion::reboteObstaculo(PrismaRectangular *obstaculo, Personaje &p) {
 bool Interaccion::reboteObstaculo(ListaObstaculos obstaculos, Personaje &p) {
 	for (int i = 0; i < obstaculos.numero; i++) {
 		if (Interaccion::reboteObstaculo(obstaculos.lista[i], p)) {
+			ETSIDI::play("Sound/Hurt.mp3");
 			p.restaVida();
 			obstaculos.eliminar(i);
 			return true;
@@ -85,6 +86,7 @@ bool Interaccion::colisionTrampas(Plano *plano, Personaje &p) {
 		if (abs(p.posicion.y - plano->limite1.y) < 1.0f) {
 			if (p.posicion.x > plano->limite1.x && p.posicion.x < plano->limite2.x) {
 				if (plano->impacto == false) {
+					ETSIDI::play("Sound/Hurt.mp3");
 					p.restaVida();
 				}
 				plano->impacto = true;
@@ -103,6 +105,7 @@ bool Interaccion::cogeBonus(Bonus *bon, Personaje &p) {
 		if (bon->p1.y < p.posicion.y && bon->p2.y > p.posicion.y) {
 			if (bon->p1.x < p.posicion.x&& bon->p2.x > p.posicion.x) {
 				p.sumaVida();
+				ETSIDI::play("Sound/Vida.wav");
 				return true;
 			}
 		}

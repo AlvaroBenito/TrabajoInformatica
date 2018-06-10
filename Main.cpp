@@ -39,8 +39,9 @@ int main(int argc, char* argv[])
 	glutSpecialFunc(onSpecialKeyboardDown);
 
 	//Inicializamos nuestros juego:
+	
 	//mundo.inicializa();
-
+	
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
@@ -81,6 +82,7 @@ void onSpecialKeyboardDown(int key, int x_t, int y_t)
 
 void OnTimer(int value)
 {
+	
 	juego.cambia();
 	//mundo.mueve();
 	juego.mueve();
@@ -90,6 +92,3 @@ void OnTimer(int value)
 	glutPostRedisplay();
 }
 
-MaquinaEstados::~MaquinaEstados() {
-
-}

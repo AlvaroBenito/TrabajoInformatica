@@ -52,6 +52,7 @@ void Mundo::inicializa() {
 	ojo.z = -10.0f;
 	z_apunta = -100.0f;
 	velocidadOjo = -0.4f;
+	personaje.resetMonedas();
 	Plataforma::setZ(0.0f);
 	PrismaRectangular::setMaterial(0);
 	multip = 1;
@@ -102,6 +103,7 @@ void Mundo::teclaEspecial(unsigned char key) {
 		break;
 	case GLUT_KEY_UP:
 		personaje.salta();
+		ETSIDI::play("Sound/Bounce.flac");
 		break;
 
 	}

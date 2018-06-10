@@ -37,6 +37,7 @@ void ListaMonedas::cogerMonedas(Personaje p) {
 	for (int i = 0; i < numero; i++) {
 		aux=Interaccion::cogerMoneda(*lista[i], p);
 		if (aux) {
+			ETSIDI::play("Sound/Moneda.wav");
 			eliminar(i);
 		}
 		
