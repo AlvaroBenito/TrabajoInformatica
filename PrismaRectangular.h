@@ -6,6 +6,7 @@ protected:
 	Vector3D p1;
 	Vector3D p2;
 	static int tipoMaterial;
+	bool impacto;//Variable que usan las clases hijas de "Plano" para que solo se aplique una colision con el personaje en vez de varias
 public:
 	PrismaRectangular(Vector3D coor1, Vector3D coor2);
 	PrismaRectangular();

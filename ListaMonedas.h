@@ -14,7 +14,6 @@ public:
 	void dibuja();
 	void rotar();
 	void cogerMonedas(Personaje personaje);
-	void destructorMonedas();
 	void generadorMonedas(float coordz);
 	void destructorMonedas(float coordz);
 	void añadirMoneda(float coordz,float mult);

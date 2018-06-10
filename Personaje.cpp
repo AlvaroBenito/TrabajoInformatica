@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "Personaje.h"
 #include "glut.h"
-#include <stdio.h>
+#include "ETSIDI.h"
 int Personaje::contMonedas = 0;
 Personaje::Personaje():escudo(false),vidas(2),centro(true),salto(true) {
 	posicion.z = -30;
@@ -34,8 +34,10 @@ void Personaje::gira(bool der){//Der=true->gira derecha, Der=false->gira izquier
 		velocidad.x = -0.2f;
 }
 void Personaje::salta() {
-	if(salto==true)
+	if (salto == true){
 		velocidad.y = 0.45f;
+		ETSIDI::play("Sound/Bounce.flac");
+	}
 	salto = false;
 }
 int Personaje::getVidas() {
@@ -46,7 +48,6 @@ int Personaje::getContMonedas() {
 }
 void Personaje::sumaMoneda(int mult) {
 	contMonedas+=mult;
-	printf("%d", contMonedas);
 }
 void Personaje::restaVida(){
 	if(vidas!=0)

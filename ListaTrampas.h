@@ -13,7 +13,6 @@ public:
 	void dibuja();
 	void destructorTrampas(float coordz);
 	void añadirTrampa(float coordz, float mult);
-	void destructorTrampas();
 	friend class Interaccion;
 private:
 	Plano * lista[MAX_TRAMPAS];

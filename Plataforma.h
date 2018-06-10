@@ -22,6 +22,9 @@ class Plataforma
 	PrismaRectangular MuroDer;
 	PrismaRectangular MuroIzq;
 	Plano FondoSuelo;
+	Plano Cielo;
+	Plano LateralD;
+	Plano LateralI;
 public:
 	Plataforma();
 	void dibuja();

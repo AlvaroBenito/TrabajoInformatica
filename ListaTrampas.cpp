@@ -70,11 +70,3 @@ void ListaTrampas::destructorTrampas(float coorz) {
 		}
 	}
 }
-void ListaTrampas::destructorTrampas() {
-	for (int i = 0; i < numero; i++) {
-		delete lista[i];
-		lista[i] = NULL;
-	}
-
-	numero = 0;
-}

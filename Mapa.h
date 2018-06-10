@@ -12,6 +12,5 @@ public:
 	void dibuja();
 	void cambia(float mult);
 	Plataforma getPlat(int i);
-	void reset();
 };
 

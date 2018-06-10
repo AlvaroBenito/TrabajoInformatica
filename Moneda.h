@@ -15,5 +15,3 @@ public:
 	int getPuntos();
 	friend class Interaccion;
 };
-
-

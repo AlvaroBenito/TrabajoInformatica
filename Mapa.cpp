@@ -33,8 +33,3 @@ Plataforma Mapa::getPlat(int i) {
 		return camino[i];
 	else return plat;
 }
-void Mapa::reset() {
-	n = 0;
-	inicializa = false;
-	camino = 0;
-}

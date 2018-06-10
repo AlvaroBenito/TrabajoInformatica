@@ -26,6 +26,7 @@ class Mundo
 	float velocidadOjo;
 	static float multip;
 public:
+	~Mundo();
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void inicializa();

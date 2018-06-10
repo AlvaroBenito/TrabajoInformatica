@@ -57,9 +57,13 @@ bool Interaccion::reboteObstaculo(PrismaRectangular *obstaculo, Personaje &p) {
 bool Interaccion::reboteObstaculo(ListaObstaculos obstaculos, Personaje &p) {
 	for (int i = 0; i < obstaculos.numero; i++) {
 		if (Interaccion::reboteObstaculo(obstaculos.lista[i], p)) {
-			ETSIDI::play("Sound/Hurt.mp3");
-			p.restaVida();
-			obstaculos.eliminar(i);
+			if (obstaculos.lista[i]->impacto == false) {
+				ETSIDI::play("Sound/Hurt.mp3");
+				p.restaVida();
+				obstaculos.lista[i]->impacto = true;
+				obstaculos.lista[i]->p1.z += 50;
+				obstaculos.lista[i]->p2.z += 50;
+			}
 			return true;
 		}
 	}

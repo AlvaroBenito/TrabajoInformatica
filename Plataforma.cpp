@@ -16,7 +16,6 @@ Plataforma::Plataforma()
 	MuroDer(esquinaDer, tamañoRect2),
 	MuroIzq(limite1, tamañoRect1),
 	FondoSuelo(limFondo1, limFondo2)
-	
 {
 	
 	z -= 10;
