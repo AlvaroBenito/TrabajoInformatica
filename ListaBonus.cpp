@@ -53,3 +53,11 @@ void ListaBonus::eliminar(int index) {
 	for (int i = index; i < numero; i++)
 		lista[i] = lista[i + 1];
 }
+void ListaBonus::destructorBonus() {
+	for (int i = 0; i < numero; i++) {
+		delete lista[i];
+		lista[i] = NULL;
+	}
+
+	numero = 0;
+}

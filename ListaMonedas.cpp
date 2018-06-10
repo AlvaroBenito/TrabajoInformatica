@@ -50,7 +50,7 @@ void ListaMonedas::generadorMonedas(float coordz){
 		}
 }
 
-void ListaMonedas::descructorMonedas(float coorz) {
+void ListaMonedas::destructorMonedas(float coorz) {
 
 	for (int i = 0; i <numero; i++) {
 		if (coorz < lista[i]->getPos().z) {
@@ -99,4 +99,12 @@ void ListaMonedas::eliminar(int index) {
 	numero--;
 	for (int i = index; i < numero; i++)
 		lista[i] = lista[i + 1];
+}
+void ListaMonedas::destructorMonedas() {
+	for (int i = 0; i < numero; i++) {
+		delete lista[i];
+		lista[i] = NULL;
+	}
+	
+	numero = 0;
 }

@@ -3,15 +3,15 @@
 #include "Plataforma.h"
 Mapa::Mapa(){
 	camino = 0;
-	n = 0;
+	n = -1;
 	inicializa = false;
 }
 void Mapa::dibuja() {                     //funcion para dibujar las 17 plataformas(17 porque se deja de ver la construccion al final de las plataformas)
 	if (inicializa == false) {            //Hay que primero dibujar 17 para iniciar, y luego la funcion cambia se encargará de modificar sus posiciones
-		camino = new Plataforma[17];
+		camino = new Plataforma[18];
 		camino->setZ(-10 * (float)++n);
 	}
-	for (int i = 0; i < 17; i++){
+	for (int i = 0; i < 18; i++){
 		camino[i].dibuja();
 	}
 	inicializa = true;
@@ -22,7 +22,7 @@ void Mapa::cambia(float mult) {//funcion para destruir y volver a crear las plat
 	if (cuenta < 0) {
 		camino->setZ(-10 * (float)(++n));
 		delete[]camino;
-		camino = new Plataforma[17];
+		camino = new Plataforma[18];
 		cuenta += 25/mult;
 	}
 	cuenta-=1;
@@ -32,4 +32,9 @@ Plataforma Mapa::getPlat(int i) {
 	if(camino!=0)
 		return camino[i];
 	else return plat;
+}
+void Mapa::reset() {
+	n = 0;
+	inicializa = false;
+	camino = 0;
 }

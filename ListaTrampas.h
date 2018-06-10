@@ -11,9 +11,9 @@ public:
 	~ListaTrampas();
 	bool agregar(Plano *trampa);
 	void dibuja();
-	void descructorTrampas(float coordz);
+	void destructorTrampas(float coordz);
 	void añadirTrampa(float coordz, float mult);
-	//void eliminar(int index);
+	void destructorTrampas();
 	friend class Interaccion;
 private:
 	Plano * lista[MAX_TRAMPAS];

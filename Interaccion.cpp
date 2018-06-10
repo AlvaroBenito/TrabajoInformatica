@@ -58,7 +58,7 @@ bool Interaccion::reboteObstaculo(ListaObstaculos obstaculos, Personaje &p) {
 	for (int i = 0; i < obstaculos.numero; i++) {
 		if (Interaccion::reboteObstaculo(obstaculos.lista[i], p)) {
 			p.restaVida();
-			p.posicion.y = 10;//Es Para comprobar que detecta el choque con el obstaculo.
+			obstaculos.eliminar(i);
 			return true;
 		}
 	}

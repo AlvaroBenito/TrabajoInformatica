@@ -50,3 +50,19 @@ void ListaObstaculos::destructorObstaculos(float coordz) {
 		}
 	}
 }
+void ListaObstaculos::destructorObstaculos() {
+	for (int i = 0; i < numero; i++) {
+		delete lista[i];
+		lista[i] = NULL;
+	}
+
+	numero = 0;
+}
+void ListaObstaculos::eliminar(int index) {
+	if ((index < 0) || (index >= numero))
+		return;
+	delete lista[index];
+	numero--;
+	for (int i = index; i < numero; i++)
+		lista[i] = lista[i + 1];
+}

@@ -1,6 +1,6 @@
 #pragma once
-#include "obstaculo.h"
 #include "ETSIDI.h"
+#include "PrismaRectangular.h"
 #define MAX 15
 
 
@@ -15,6 +15,7 @@ public:
 	void dibuja();
 	void añadirObstaculo(float coordz,float mult);
 	void destructorObstaculos(float coordz);
-	
+	void destructorObstaculos();
+	void eliminar(int index);
 };
 

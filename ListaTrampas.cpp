@@ -61,7 +61,7 @@ void ListaTrampas::añadirTrampa(float coordz,float mult) {
 	}
 }
 
-void ListaTrampas::descructorTrampas(float coorz) {
+void ListaTrampas::destructorTrampas(float coorz) {
 
 	for (int i = 0; i <numero; i++) {
 		if (coorz < lista[i]->getLim1().z) {
@@ -71,4 +71,12 @@ void ListaTrampas::descructorTrampas(float coorz) {
 				lista[j] = lista[j + 1];
 		}
 	}
+}
+void ListaTrampas::destructorTrampas() {
+	for (int i = 0; i < numero; i++) {
+		delete lista[i];
+		lista[i] = NULL;
+	}
+
+	numero = 0;
 }

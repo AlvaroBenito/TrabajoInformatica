@@ -29,7 +29,7 @@ public:
 	PrismaRectangular getSuelo();
 	PrismaRectangular getParedDer();
 	PrismaRectangular getParedIzq();
-	void setZ(float zi);
+	static void setZ(float zi);
 	/*
 	void setColor(int r, int v, int a);
 	void setPos(float x1, float y1, float x2, float y2);

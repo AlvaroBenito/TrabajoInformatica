@@ -46,8 +46,15 @@ void Mundo::inicializa() {
 	ojo.z = -10.0f;
 	z_apunta = -100.0f;
 	velocidadOjo = -0.4f;
-	monedas.generadorMonedas(getOjo().z);
-
+	//personaje.reset();
+	//monedas.destructorMonedas();
+	//bonus.destructorBonus();
+	//obstaculos.destructorObstaculos();
+	//trampas.destructorTrampas();
+	//mapa.reset();
+	Plataforma::setZ(0.0f);
+	PrismaRectangular::setMaterial(0);
+	multip = 1;
 }
 
 Vector3D Mundo::getOjo() {
@@ -61,11 +68,11 @@ float Mundo::getZapunta() {
 void Mundo::cambia() {
 	mapa.cambia(multip);
 	monedas.añadirMoneda(getOjo().z,multip);
-	monedas.descructorMonedas(getOjo().z-10.0f);
+	monedas.destructorMonedas(getOjo().z-10.0f);
 	obstaculos.añadirObstaculo(getOjo().z, multip);
 	obstaculos.destructorObstaculos(getOjo().z-10.0f);
 	trampas.añadirTrampa(getOjo().z,multip);
-	trampas.descructorTrampas(getOjo().z +200);
+	trampas.destructorTrampas(getOjo().z +200);
 	bonus.añadirBonus(getOjo().z, multip);
 	bonus.destructorBonus(getOjo().z-10.0f);
 	
@@ -91,4 +98,7 @@ void Mundo::teclaEspecial(unsigned char key) {
 		break;
 
 	}
+}
+Personaje Mundo::getPers() {
+	return personaje;
 }

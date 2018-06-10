@@ -12,6 +12,7 @@ public:
 	void dibuja();
 	void añadirBonus(float coordz, float mult);
 	void destructorBonus(float coordz);
+	void destructorBonus();
 	void eliminar(int index);
 	friend class Interaccion;
 
