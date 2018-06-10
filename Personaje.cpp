@@ -3,7 +3,7 @@
 #include "glut.h"
 #include <stdio.h>
 int Personaje::contMonedas = 0;
-Personaje::Personaje():escudo(false),vidas(2),centro(true) {
+Personaje::Personaje():escudo(false),vidas(2),centro(true),salto(true) {
 	posicion.z = -30;
 	posicion.y = 1.4;
 	posicion.x = 0;
@@ -13,14 +13,14 @@ Personaje::Personaje():escudo(false),vidas(2),centro(true) {
 }
 void Personaje::dibuja() {
 	switch (vidas) {
-	case 2:
-		glColor3ub(0, 255, 0);
+	case 0:
+		glColor3ub(255, 0, 0);
 		break;
 	case 1:
 		glColor3ub(255, 255, 0);
 		break;
 	default:
-		glColor3ub(255, 0, 0);
+		glColor3ub(0, 255, 0);
 	}
 	glTranslatef(posicion.x, posicion.y, posicion.z);
 	glutSolidSphere(0.4, 20, 20);
@@ -51,4 +51,11 @@ void Personaje::sumaMoneda(int mult) {
 void Personaje::restaVida(){
 	if(vidas!=0)
 		vidas--;
+}
+void Personaje::sumaVida() {
+	if (vidas < 6)
+		vidas++;
+}
+bool Personaje::getEscudo() {
+	return escudo;
 }

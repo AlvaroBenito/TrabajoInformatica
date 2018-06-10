@@ -6,6 +6,8 @@
 #include "MonedaEspecial.h"
 ListaMonedas::ListaMonedas():numero(0)
 {
+	for (int i = 0; i < MAX_MONEDAS; i++)
+		lista[i] = NULL;
 }
 
 ListaMonedas::~ListaMonedas()

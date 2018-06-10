@@ -3,7 +3,7 @@ SueloMalo::SueloMalo()
 {
 }
 
-SueloMalo::SueloMalo(float coordx, float coordz) : Plano(Vector3D(coordx - 0.5, 0.51, coordz), Vector3D(coordx + 0.5, 0.51, coordz - 30)) {
+SueloMalo::SueloMalo(float coordx, float coordz) : Plano(Vector3D(coordx - 0.5, 0.52, coordz), Vector3D(coordx + 0.5, 0.52, coordz - 30)) {
 
 }
 

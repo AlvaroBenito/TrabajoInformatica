@@ -16,4 +16,6 @@ public:
 	void sumaMoneda(int mult);
 	void salta();
 	void restaVida();
+	void sumaVida();
+	bool getEscudo();
 };

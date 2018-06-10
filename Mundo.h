@@ -11,6 +11,7 @@
 #include "Texto.h"
 #include "glut.h"
 #include "ListaTrampas.h"
+#include "ListaBonus.h"
 
 class Mundo
 {
@@ -18,6 +19,7 @@ class Mundo
 	ListaMonedas monedas;
 	ListaObstaculos obstaculos;
 	ListaTrampas trampas;
+	ListaBonus bonus;
 	Personaje personaje;
 	Portal portal;
 	Vector3D ojo;

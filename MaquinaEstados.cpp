@@ -14,8 +14,8 @@ void MaquinaEstados::dibuja() {
 			ETSIDI::setTextColor(1, 1, 0);
 			ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 			ETSIDI::printxy("Pang 1.1", -5, 8);
-			ETSIDI::setTextColor(1, 1, 1);
-			ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
+			//ETSIDI::setTextColor(1, 1, 0);
+			//ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 			ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
 			ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
 			ETSIDI::printxy("Hernando & Rodriguez-Losada", 2, 1);

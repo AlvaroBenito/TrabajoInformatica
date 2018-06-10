@@ -48,7 +48,7 @@ bool Interaccion::cogerMoneda(Moneda mon, Personaje &p) {
 	return false;
 }
 
-bool Interaccion::reboteObstaculo(Obstaculo *obstaculo, Personaje &p) {
+bool Interaccion::reboteObstaculo(PrismaRectangular *obstaculo, Personaje &p) {
 	if ((obstaculo->getP1().z+1 > p.posicion.z && p.posicion.z > obstaculo->getP2().z-1) && (p.posicion.y < obstaculo->getP2().y))
 		return true;
 	return false;
@@ -64,7 +64,7 @@ bool Interaccion::reboteObstaculo(ListaObstaculos obstaculos, Personaje &p) {
 	}
 	return 0;
 }
-bool Interaccion::condicionDibujo(Plano *p, Obstaculo *o) {
+bool Interaccion::condicionDibujo(Plano *p, PrismaRectangular *o) {
 	if (abs(o->p1.z - p->limite1.z) < 10) {
 		p->limite1.z = 0;
 		p->limite2.z = 0;
@@ -96,5 +96,29 @@ bool Interaccion::colisionTrampas(Plano *plano, Personaje &p) {
 bool Interaccion::colisionTrampas(ListaTrampas t, Personaje &p) {
 	for (int i = 0; i < t.numero; i++)
 		colisionTrampas(t.lista[i], p);
+	return true;
+}
+bool Interaccion::cogeBonus(Bonus *bon, Personaje &p) {
+	if (bon->p1.z > p.posicion.z && bon->p2.z < p.posicion.z) {
+		if (bon->p1.y < p.posicion.y && bon->p2.y > p.posicion.y) {
+			if (bon->p1.x < p.posicion.x&& bon->p2.x > p.posicion.x) {
+				if (bon->tipo)
+					p.sumaVida();
+				else
+					p.escudo = true;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+bool Interaccion::cogeBonus(ListaBonus b, Personaje &p) {
+	bool aux;
+	for (int i = 0; i < b.numero; i++) {
+		aux=cogeBonus(b.lista[i], p);
+		if (aux) {
+			b.eliminar(i);
+		}
+	}
 	return true;
 }

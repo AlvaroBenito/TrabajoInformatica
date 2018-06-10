@@ -8,6 +8,7 @@ void Mundo::dibuja(){
 	monedas.dibuja();
 	obstaculos.dibuja();
 	trampas.dibuja();
+	bonus.dibuja();
 	Texto::imprimeMonedas(Texto::cadena(personaje.getContMonedas()),ojo.z-20);
 	Texto::imprimeDistancia(Texto::cadena((int)ojo.z),velocidadOjo,ojo.z-20);
 	Texto::imprimeVidas(Texto::cadena(personaje.getVidas()),ojo.z-20);
@@ -19,7 +20,7 @@ void Mundo::dibuja(){
 		a++;
 		velocidadOjo -= 0.1f;
 		multip+=0.25f;//En realidad es un "multiplicador de frecuencia" de construccion del suelo, Siempre va a ser 1/4 del incremento de velocidadOjo por mátematica
-		if (a == 3) a = 0;
+		if (a == 2) a = 0;
 	}
 
 }
@@ -33,9 +34,10 @@ void Mundo::mueve() {
 	Interaccion::reboteSuelo(mapa.getPlat(0).getSuelo(), personaje);
 	Interaccion::mueveCentro(mapa.getPlat(0).getSuelo(), personaje);
 	Interaccion::choqueParedes(mapa.getPlat(0).getParedDer(),mapa.getPlat(0).getParedIzq(),personaje);
-	Interaccion::reboteObstaculo(obstaculos, personaje);
 	Interaccion::condicionDibujo(trampas, obstaculos);
+	Interaccion::reboteObstaculo(obstaculos, personaje);
 	Interaccion::colisionTrampas(trampas, personaje);
+	Interaccion::cogeBonus(bonus, personaje);
 }
 
 void Mundo::inicializa() {
@@ -64,6 +66,9 @@ void Mundo::cambia() {
 	obstaculos.destructorObstaculos(getOjo().z-10.0f);
 	trampas.añadirTrampa(getOjo().z,multip);
 	trampas.descructorTrampas(getOjo().z +200);
+	bonus.añadirBonus(getOjo().z, multip);
+	bonus.destructorBonus(getOjo().z-10.0f);
+	
 	
 }
 void Mundo::tecla(unsigned char key) {
