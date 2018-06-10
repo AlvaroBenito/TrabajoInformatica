@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include "glut.h"
-#include "Mundo.h"
+#include "MaquinaEstados.h"
 #include "ETSIDI.h"
 #define PI 3.1416
-Mundo mundo;
+MaquinaEstados juego;
+//Mundo mundo;
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
 //NO HACE FALTA LLAMARLAS EXPLICITAMENTE
@@ -38,7 +39,7 @@ int main(int argc, char* argv[])
 	glutSpecialFunc(onSpecialKeyboardDown);
 
 	//Inicializamos nuestros juego:
-	mundo.inicializa();
+	//mundo.inicializa();
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
@@ -54,32 +55,41 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(mundo.getOjo().x, mundo.getOjo().y, mundo.getOjo().z,  // posicion del ojo
-		0, 1, mundo.getZapunta(),      // hacia que punto mira  (0,0,0) 
+	gluLookAt(juego.getOjo().x, juego.getOjo().y, juego.getOjo().z,  // posicion del ojo
+		0, 1, juego.getZapunta(),      // hacia que punto mira  (0,0,0) 
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 							 //aqui es donde hay que poner el código de dibujo
 
-	mundo.dibuja();
+	//mundo.dibuja();
+	juego.dibuja();
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
 
 }
 void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
-	mundo.tecla(key);
+	juego.tecla(key);
+	//mundo.tecla(key);
 	glutPostRedisplay();
 }
 
 void onSpecialKeyboardDown(int key, int x_t, int y_t)
 {
-	mundo.teclaEspecial(key);
+	juego.teclaEspecial(key);
+	//mundo.teclaEspecial(key);
 }
 
 void OnTimer(int value)
 {
-	mundo.mueve();
-	mundo.cambia();
+	juego.cambia();
+	//mundo.mueve();
+	juego.mueve();
+	//mundo.cambia();
 	//DOS ULTIMAS LINEAS OBLIGATORIAS
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
+}
+
+MaquinaEstados::~MaquinaEstados() {
+
 }
