@@ -35,6 +35,6 @@ public:
 	Vector3D getOjo();
 	float getZapunta();
 	void cambia();
-	Personaje getPers();
+	int getVidas() { return personaje.getVidas(); }
 };
 

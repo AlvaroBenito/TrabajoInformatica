@@ -18,5 +18,4 @@ public:
 	void restaVida();
 	void sumaVida();
 	bool getEscudo();
-	void reset();
 };

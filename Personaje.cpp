@@ -59,8 +59,3 @@ void Personaje::sumaVida() {
 bool Personaje::getEscudo() {
 	return escudo;
 }
-void Personaje::reset() {
-	contMonedas = 0;
-	setPosZ(-30.0f);
-	vidas = 2;
-}
