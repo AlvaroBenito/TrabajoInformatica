@@ -1,6 +1,6 @@
 #include "Plataforma.h"
 
-float Plataforma::z = 30.0f;
+float Plataforma::z = 0.0f;
 
 Plataforma::Plataforma()
 	:limite1(-1.5f, 0.0f, z),
