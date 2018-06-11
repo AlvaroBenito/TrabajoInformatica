@@ -13,3 +13,9 @@ public:
 	float getZ();
 	void setZ(float zi);
 };
+inline float Portal::getZ() {
+	return z;
+}
+inline void Portal::setZ(float zi) {
+	z = zi;
+}

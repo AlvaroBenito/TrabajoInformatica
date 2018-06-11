@@ -19,4 +19,9 @@ public:
 	Vector3D getLim1();
 	friend class Interaccion;
 };
-
+inline void Plano::setMaterial(int t) {
+	tipoMaterial = t;
+}
+inline Vector3D Plano::getLim1() {
+	return limite1;
+}

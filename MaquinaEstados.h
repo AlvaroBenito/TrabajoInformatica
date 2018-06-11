@@ -19,4 +19,10 @@ protected:
 	enum Estado{INICIO,JUEGO, GAMEOVER,PAUSA};
 	Estado estado;
 };
+inline Vector3D MaquinaEstados::getOjo() {
+	return mundo->getOjo();
+}
+inline float MaquinaEstados::getZapunta() {
+	return mundo->getZapunta();
+}
 

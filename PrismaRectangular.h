@@ -11,11 +11,22 @@ public:
 	PrismaRectangular(Vector3D coor1, Vector3D coor2);
 	PrismaRectangular();
 	void dibuja();
-	void dibuja2(Vector3D a, Vector3D b);
+	static void dibuja2(Vector3D a, Vector3D b);
 	Vector3D getP1();
 	Vector3D getP2();
-	void setP1_P2(Vector3D a, Vector3D b);
 	static void setMaterial(int t);
 	static int getMaterial();
 	friend class Interaccion;
 };
+inline void PrismaRectangular::setMaterial(int t) {
+	tipoMaterial = t;
+}
+inline int PrismaRectangular::getMaterial() {
+	return tipoMaterial;
+}
+inline Vector3D PrismaRectangular::getP1() {
+	return p1;
+}
+inline Vector3D PrismaRectangular::getP2() {
+	return p2;
+}

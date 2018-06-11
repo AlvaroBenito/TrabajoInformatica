@@ -19,11 +19,10 @@ void Portal::dibuja() {
 	Vector3D aux3(-6, 10, z + 2);
 	Vector3D aux4(6, 8, z - 2);
 	Vector3D aux5(4, 0, z + 2);
-	PrismaRectangular auxiliar;
 	PrismaRectangular::setMaterial(3);
-	auxiliar.dibuja2(aux1, aux2);
-	auxiliar.dibuja2(aux3, aux4);
-	auxiliar.dibuja2(aux4, aux5);
+	PrismaRectangular::dibuja2(aux1, aux2);
+	PrismaRectangular::dibuja2(aux3, aux4);
+	PrismaRectangular::dibuja2(aux4, aux5);
 	PrismaRectangular::setMaterial(mat);
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Portal1.png").id);
@@ -39,10 +38,4 @@ void Portal::dibuja() {
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_BLEND);
 	glEnable(GL_LIGHTING);
-}
-float Portal::getZ() {
-	return z;
-}
-void Portal::setZ(float zi) {
-	z = zi;
 }

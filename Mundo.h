@@ -37,4 +37,13 @@ public:
 	void cambia();
 	Personaje getPers();
 };
+inline Vector3D Mundo::getOjo() {
+	return ojo;
+}
 
+inline float Mundo::getZapunta() {
+	return z_apunta;
+}
+inline Personaje Mundo::getPers() {
+	return personaje;
+}

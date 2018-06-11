@@ -10,9 +10,6 @@ Plano::Plano(Vector3D coor1, Vector3D coor2):impacto(false) {
 	tipoMaterial = 0;
 }
 
-void Plano::setMaterial(int t) {
-	tipoMaterial = t;
-}
 
 
 
@@ -43,7 +40,4 @@ void Plano::dibuja() {
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 	return;
-}
-Vector3D Plano::getLim1() {
-	return limite1; 
 }

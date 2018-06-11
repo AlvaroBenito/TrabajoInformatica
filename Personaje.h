@@ -17,6 +17,11 @@ public:
 	void salta();
 	void restaVida();
 	void sumaVida();
-	bool getEscudo();
 	void resetMonedas();
 };
+inline int Personaje::getVidas() {
+	return vidas;
+}
+inline int Personaje::getContMonedas() {
+	return contMonedas;
+}

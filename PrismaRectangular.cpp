@@ -17,13 +17,6 @@ PrismaRectangular::PrismaRectangular():impacto(false) {//No es necesario ya que 
 	p2.z = 0;
 
 }
-
-void PrismaRectangular::setMaterial(int t) {
-	tipoMaterial = t;
-}
-int PrismaRectangular::getMaterial() {
-	return tipoMaterial;
-}
 void PrismaRectangular::dibuja() {
 	switch (tipoMaterial) {//Texturas a partir de aqui
 	case 0:
@@ -100,12 +93,4 @@ void PrismaRectangular::dibuja2(Vector3D a, Vector3D b) {
 	PrismaRectangular aux(a, b);
 	aux.dibuja();
 }
-Vector3D PrismaRectangular::getP1() {
-	return p1;
-}
-Vector3D PrismaRectangular::getP2() {
-	return p2;
-}
-void PrismaRectangular::setP1_P2(Vector3D a, Vector3D b) {
 
-}

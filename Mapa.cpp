@@ -27,9 +27,4 @@ void Mapa::cambia(float mult) {//funcion para destruir y volver a crear las plat
 	}
 	cuenta-=1;
 }
-Plataforma Mapa::getPlat(int i) {
-	Plataforma plat;
-	if(camino!=0)
-		return camino[i];
-	else return plat;
-}
+

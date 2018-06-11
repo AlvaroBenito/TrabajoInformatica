@@ -22,9 +22,6 @@ class Plataforma
 	PrismaRectangular MuroDer;
 	PrismaRectangular MuroIzq;
 	Plano FondoSuelo;
-	Plano Cielo;
-	Plano LateralD;
-	Plano LateralI;
 public:
 	Plataforma();
 	void dibuja();
@@ -33,9 +30,19 @@ public:
 	PrismaRectangular getParedDer();
 	PrismaRectangular getParedIzq();
 	static void setZ(float zi);
-	/*
-	void setColor(int r, int v, int a);
-	void setPos(float x1, float y1, float x2, float y2);
-	float distancia(Vector3D punto, Vector3D *direccion);
-	*/	
 };
+inline Vector3D Plataforma::getPos() {
+	return sueloDer.getP1();
+}
+inline PrismaRectangular Plataforma::getSuelo() {
+	return sueloCen;
+}
+inline PrismaRectangular Plataforma::getParedDer() {
+	return MuroDer;
+}
+inline PrismaRectangular Plataforma::getParedIzq() {
+	return MuroIzq;
+}
+inline void Plataforma::setZ(float zi) {
+	z = zi;
+}

@@ -121,12 +121,7 @@ void MaquinaEstados::cambia() {
 		mundo->cambia();
 	}
 }
-Vector3D MaquinaEstados::getOjo() {
-	return mundo->getOjo();
-}
-float MaquinaEstados::getZapunta() {
-	return mundo->getZapunta();
-}
+
 
 MaquinaEstados::~MaquinaEstados() {
 	delete mundo;

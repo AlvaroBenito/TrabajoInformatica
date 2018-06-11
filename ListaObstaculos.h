@@ -15,6 +15,5 @@ public:
 	void dibuja();
 	void añadirObstaculo(float coordz,float mult);
 	void destructorObstaculos(float coordz);
-	void eliminar(int index);
 };
 

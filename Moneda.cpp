@@ -29,13 +29,7 @@ Moneda::Moneda(float posx, float posy, float posz,float vel):puntos(1) {
 	velocidad = vel;
 }
 
-void Moneda::setPos(Vector3D pos) {
 
-	posicion = pos;
-}
 void Moneda::sumaAnguloRot(float theta) {
 	anguloRotacion += theta;
-}
-int Moneda::getPuntos() {
-	return puntos;
 }

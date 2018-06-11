@@ -22,7 +22,7 @@ void Mundo::dibuja(){
 		portal.setZ(portal.getZ()-400);
 		PrismaRectangular::setMaterial(a);
 		a++;
-		if (velocidadOjo > -1.5f) {
+		if (velocidadOjo > -1.8f) {
 			velocidadOjo -= 0.1f;
 			multip += 0.25f;
 		}//En realidad es un "multiplicador de frecuencia" de construccion del suelo, Siempre va a ser 1/4 del incremento de velocidadOjo por mátematica
@@ -49,7 +49,7 @@ void Mundo::mueve() {
 	if (aux) {
 		delete bonus;
 		float pos = ETSIDI::lanzaDado(4);
-		bonus= new Bonus(Vector3D(pos - 2.5f, 2.5f, ojo.z-540), Vector3D(pos - 1.5f, 3.5f, ojo.z-542), ETSIDI::lanzaMoneda());
+		bonus= new Bonus(Vector3D(pos - 2.5f, 2.5f, ojo.z-840), Vector3D(pos - 1.5f, 3.5f, ojo.z-842), ETSIDI::lanzaMoneda());
 	}
 }
 
@@ -64,15 +64,7 @@ void Mundo::inicializa() {
 	PrismaRectangular::setMaterial(0);
 	multip = 1;
 	float pos = ETSIDI::lanzaDado(4);
-	bonus= new Bonus(Vector3D(pos - 2.5f, 2.5f, -240), Vector3D(pos - 1.5f, 3.5f, -242), ETSIDI::lanzaMoneda());
-}
-
-Vector3D Mundo::getOjo() {
-	return ojo;
-}
-
-float Mundo::getZapunta() {
-	return z_apunta;
+	bonus= new Bonus(Vector3D(pos - 2.5f, 2.5f, -440), Vector3D(pos - 1.5f, 3.5f, -442), ETSIDI::lanzaMoneda());
 }
 
 void Mundo::cambia() {
@@ -110,7 +102,4 @@ void Mundo::teclaEspecial(unsigned char key) {
 		break;
 
 	}
-}
-Personaje Mundo::getPers() {
-	return personaje;
 }

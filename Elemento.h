@@ -12,3 +12,6 @@ public:
 	void setPosZ(float z);
 	Vector3D getPos();
 };
+inline Vector3D Elemento::getPos() {
+	return posicion;
+}

@@ -13,4 +13,9 @@ public:
 	void cambia(float mult);
 	Plataforma getPlat(int i);
 };
-
+inline Plataforma Mapa::getPlat(int i) {
+	Plataforma plat;
+	if (camino != 0)
+		return camino[i];
+	else return plat;
+}

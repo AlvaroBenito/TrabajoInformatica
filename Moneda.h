@@ -15,3 +15,9 @@ public:
 	int getPuntos();
 	friend class Interaccion;
 };
+inline int Moneda::getPuntos() {
+	return puntos;
+}
+inline void Moneda::setPos(Vector3D pos) {
+	posicion = pos;
+}

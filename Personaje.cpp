@@ -40,12 +40,7 @@ void Personaje::salta() {
 	}
 	salto = false;
 }
-int Personaje::getVidas() {
-	return vidas;
-}
-int Personaje::getContMonedas() {
-	return contMonedas;
-}
+
 void Personaje::sumaMoneda(int mult) {
 	contMonedas+=mult;
 }
@@ -54,13 +49,9 @@ void Personaje::restaVida(){
 		vidas--;
 }
 void Personaje::sumaVida() {
-	if (vidas < 6)
+	if (vidas < 3)
 		vidas++;
 }
-bool Personaje::getEscudo() {
-	return escudo;
-}
-
 void Personaje::resetMonedas() {
 	contMonedas = 0;
 }
