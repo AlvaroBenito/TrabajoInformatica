@@ -14,7 +14,7 @@ protected:
 public:
 	Plano();
 	Plano(Vector3D coor1, Vector3D coor2);
-	virtual void dibuja();
+	virtual void dibuja();//metodo virtual para que las clases heredadas usen el suyo propio
 	void setMaterial(int t);
 	Vector3D getLim1();
 	friend class Interaccion;

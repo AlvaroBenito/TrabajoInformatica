@@ -2,10 +2,8 @@
 #include "Personaje.h"
 #include <sstream>
 #include <iostream>
-class Texto {
-	int contMonedas;
-	float distancia;
-	int vidas;
+class Texto {//Clase para manejar el texto en 3D creado con ETSIDI.h
+			 //No necesita creacion de objetos y funciona para manejar los contadores que se mueven con el personaje
 public:
 	static void printxyz(char *txt,float x, float y, float z);
 	static void imprimeMonedas(char *txt, float z);

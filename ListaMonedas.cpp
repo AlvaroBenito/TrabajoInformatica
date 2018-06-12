@@ -6,7 +6,7 @@
 #include "MonedaEspecial.h"
 ListaMonedas::ListaMonedas():numero(0)
 {
-	for (int i = 0; i < MAX_MONEDAS; i++)
+	for (int i = 0; i < MAX_MONEDAS; i++)//Inicializacion de los punteros a NULL
 		lista[i] = NULL;
 }
 
@@ -14,7 +14,7 @@ ListaMonedas::~ListaMonedas()
 {
 }
 
-bool ListaMonedas::agregar(Moneda *moneda)
+bool ListaMonedas::agregar(Moneda *moneda)//Metodo para crear monedas de forma correcta
 {
 	if (numero<MAX_MONEDAS)
 		lista[numero++] = moneda;
@@ -28,14 +28,14 @@ void ListaMonedas::dibuja()
 	for (int i = 0; i<numero; i++)
 		lista[i]->dibuja();
 }
-void ListaMonedas::rotar()
+void ListaMonedas::rotar()//Funcion para aumentar el angulo de rotacion de la moneda
 {
 	Moneda::sumaAnguloRot(5.0f);
 }
-void ListaMonedas::cogerMonedas(Personaje p) {
+void ListaMonedas::cogerMonedas(Personaje p) {//Funcion para coger las monedas utilizando la interaccion cogerMoneda
 	bool aux = false;
 	for (int i = 0; i < numero; i++) {
-		aux=Interaccion::cogerMoneda(*lista[i], p);
+		aux=Interaccion::cogerMoneda(*lista[i], p);//si hay colision, devuelve true
 		if (aux) {
 			ETSIDI::play("Sound/Moneda.mp3");
 			eliminar(i);
@@ -43,15 +43,7 @@ void ListaMonedas::cogerMonedas(Personaje p) {
 		
 	}
 }
-void ListaMonedas::generadorMonedas(float coordz){
-	float pos = (float)ETSIDI::lanzaDado(4) - 2;//como la distancia entre cada carril es 1, se aprovecha para obtener facilmente uno de los numeros: -1,0,1 de los tres carriles
-		for (float i = coordz-50; i > coordz - 85; i = i - 5) {
-			Moneda* aux = new Moneda(pos, 0.96f, i);
-			agregar(aux);
-		}
-}
-
-void ListaMonedas::destructorMonedas(float coorz) {
+void ListaMonedas::destructorMonedas(float coorz) {//Destruye las monedas si se quedan por detras
 
 	for (int i = 0; i <numero; i++) {
 		if (coorz < lista[i]->getPos().z) {
@@ -62,13 +54,13 @@ void ListaMonedas::destructorMonedas(float coorz) {
 		}
 	}
 }
-void ListaMonedas::añadirMoneda(float coorz,float mult) {
-	static int grupo = 7;
+void ListaMonedas::añadirMoneda(float coorz,float mult) {//Genera correctamente los grupos de monedas de forma separada
+	static int grupo = 7;//Se generan grupos de 7 monedas
 	static float pos = (float)ETSIDI::lanzaDado(4) - 2;
 	static float cuentaMon = 50;
-	if (agr) {
+	if (agr) {//Si se pueden agregar monedas
 		bool monedaEsp = false;
-		int num = ETSIDI::lanzaDado(8);
+		int num = ETSIDI::lanzaDado(8);//Se genera un numero aleatorio para saber si la moneda va a ser especial o no
 		if (num == 1) monedaEsp = true;
 		if (monedaEsp) {
 			Moneda *aux1 = new MonedaEspecial(pos, 0.96f, coorz - 120);
@@ -81,23 +73,29 @@ void ListaMonedas::añadirMoneda(float coorz,float mult) {
 		agr = false;//Despues de crear una moneda, se espera para poder crear la siguiente
 		grupo--;
 	}
-	if (grupo == 0) {
-		pos = (float)ETSIDI::lanzaDado(4) - 2;
-		grupo = 7;
-		agr = false;
-		cuentaMon = 150.0f/mult;//Tiempo desde que muere un grupo de monedas hasta que aparece otro
+	if (grupo == 0) {//Cuando ya se han creado 7 monedas, se espera al siguiente grupo de monedas
+		pos = (float)ETSIDI::lanzaDado(4) - 2;//Genera el carril donde se dibujará el siguiente grupo
+		grupo = 7;//Reinicia la cuenta del grupo siguiente
+		agr = false;//No permite de momento crear monedas hasta que sea true
+		cuentaMon = 150.0f/mult;//Tiempo desde que muere un grupo de monedas hasta que aparece otro basado en la velocidad del ojo(mult)
 	}
 	cuentaMon--;
-	if (cuentaMon < 0 && grupo != 0) {//Frecuencia de creacion de monedas dentro de un grupo de monedas
-		cuentaMon = 12.0f/mult;//Mult para que dependa de la velocidad del ojo
+	if (cuentaMon < 0 && grupo != 0) {//Cuando se acaba el tiempo para crear monedas entre grupo y grupo, se vuelve a crear otro grupo
+		cuentaMon = 12.0f/mult;//Frecuencia de creacion de las monedas dentro del mismo grupo de monedas
 		agr = true;//Cuando pasa el tiempo necesario, se permite crear una moneda
 	}
 }
-void ListaMonedas::eliminar(int index) {
+void ListaMonedas::eliminar(int index) {//Funcion para poder eliminar monedas de forma correcta
 	if ((index < 0) || (index >= numero))
 		return;
 	delete lista[index];
 	numero--;
 	for (int i = index; i < numero; i++)
 		lista[i] = lista[i + 1];
+}
+void ListaMonedas::destructorMonedas() {
+	for (int i = 0; i < numero; i++)
+		delete lista[i];
+	numero = 0;
+	
 }

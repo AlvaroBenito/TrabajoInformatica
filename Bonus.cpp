@@ -9,7 +9,10 @@ Bonus::Bonus(Vector3D a, Vector3D b, bool tip):PrismaRectangular(a,b),tipo(tip) 
 
 void Bonus::dibuja() {
 	int a = tipoMaterial;
-	tipoMaterial = 10;
+	if (tipo) {
+		tipoMaterial = 10;
+	}
+	else tipoMaterial = 11;
 	PrismaRectangular::dibuja();
 	tipoMaterial = a;
 }

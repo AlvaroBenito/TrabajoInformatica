@@ -11,9 +11,10 @@ class ListaObstaculos{
 public:
 	ListaObstaculos();
 	~ListaObstaculos();
-	bool agregar(PrismaRectangular *e);
+	bool agregar(PrismaRectangular *e);//Metodo para agregar un obstaculo
 	void dibuja();
-	void añadirObstaculo(float coordz,float mult);
-	void destructorObstaculos(float coordz);
+	void añadirObstaculo(float coordz,float mult);//Metodo para añadir un obstaculo en una coordenada z especifica
+	void destructorObstaculos(float coordz);//Metodo para destruir obstaculos en funcion de su coordenada z
+	void destructorObstaculos();//Eliminar todos los obstaculos
 };
 

@@ -18,13 +18,13 @@ class Mundo
 	ListaMonedas monedas;
 	ListaObstaculos obstaculos;
 	ListaTrampas trampas;
-	Bonus *bonus;
+	Bonus *bonus;//al solo poder haber un bonus a la vez en el mapa, no se necesita una lista
 	Personaje personaje;
-	Portal portal;
+	Portal portal;//Ocurre lo mismo que con el bonus, pero tiene un comportamiento distinto
 	Vector3D ojo;
 	float z_apunta;
 	float velocidadOjo;
-	static float multip;
+	static float multip;//Valor que va a la coordinado con la velocidad del ojo para el calculo de las frecuencias dentro de otras clases
 public:
 	~Mundo();
 	void tecla(unsigned char key);

@@ -13,8 +13,6 @@ void OnTimer(int value); //esta funcion sera llamada cuando transcurra una tempo
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla
 													  //declaraciones de funciones
 void onSpecialKeyboardDown(int key, int x_t, int y_t);
-
-int z = 40;
 int main(int argc, char* argv[])
 {
 	//Inicializar el gestor de ventanas GLUT
@@ -22,7 +20,7 @@ int main(int argc, char* argv[])
 	glutInit(&argc, argv);
 	glutInitWindowSize(800, 600);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-	glutCreateWindow("MiJuego");
+	glutCreateWindow("INFINITE RUN");
 
 	//habilitar luces y definir perspectiva
 	glEnable(GL_LIGHT0);

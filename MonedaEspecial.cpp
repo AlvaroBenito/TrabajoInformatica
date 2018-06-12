@@ -3,9 +3,9 @@
 #include "glut.h"
 #include "ETSIDI.h"
 MonedaEspecial::MonedaEspecial(float posx, float posy, float posz, float vel):Moneda(posx,posy,posz,vel) {
-	puntos = 5;
+	puntos = 5;//Las monedas especiales valen 5 puntos
 }
-void MonedaEspecial::dibuja() {
+void MonedaEspecial::dibuja() {//Forma especial de dibujar monedas especiales
 	int rojo=ETSIDI::lanzaDado(255);
 	int verde=ETSIDI::lanzaDado(255);
 	int azul=ETSIDI::lanzaDado(255);

@@ -22,6 +22,8 @@ void Personaje::dibuja() {
 	default:
 		glColor3ub(0, 255, 0);
 	}
+	if (escudo)
+		glColor3ub(0, 255, 255);
 	glTranslatef(posicion.x, posicion.y, posicion.z);
 	glutSolidSphere(0.4, 20, 20);
 	glTranslatef(-posicion.x, -posicion.y, -posicion.z);
@@ -54,4 +56,12 @@ void Personaje::sumaVida() {
 }
 void Personaje::resetMonedas() {
 	contMonedas = 0;
+}
+void Personaje::finEscudo() {
+	static int cuenta = 500;
+	cuenta--;
+	if (cuenta == 0) {
+		escudo = false;
+		cuenta = 500;
+	}
 }

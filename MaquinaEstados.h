@@ -9,9 +9,9 @@ public:
 	
 	void teclaEspecial(unsigned char key);
 	void tecla(unsigned char key);
-	void    mueve();
-	void    dibuja();
-	void cambia();
+	void    mueve();//Incluye los movimientos de mundo
+	void    dibuja();//Incluye los dibujos de mundo
+	void cambia();//Incluye los cambios de mundo
 	Vector3D getOjo();
 	float getZapunta();
 protected:

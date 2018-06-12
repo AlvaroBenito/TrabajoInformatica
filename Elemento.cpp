@@ -12,6 +12,3 @@ void Elemento::mueve(float vel) {
 
 }
 
-inline void Elemento::setPosZ(float z) {
-	posicion.z = z;
-}

@@ -2,21 +2,24 @@
 #include <stdlib.h>
 #include "MaquinaEstados.h"
 #include "ETSIDI.h"
+#include "Texto.h"
 MaquinaEstados::MaquinaEstados() {
 	estado = INICIO;
 	mundo = new Mundo;
 	ETSIDI::playMusica("Sound/Caverna.ogg", true);
 }
-
+MaquinaEstados::~MaquinaEstados() {
+	delete mundo;
+}
 
 void MaquinaEstados::dibuja() {
-	if (estado == INICIO){//CODIGO PARA PINTAR UNA PANTALLA NEGRA CON LETRAS 
+	if (estado == INICIO){
 			gluLookAt(0, 7.5,30,  // posicion del ojo 
 				0.0, 7.5, 0.0,      // hacia que punto mira  (0,7.5,0)  
 				0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)
 
 			
-			mundo->inicializa();
+			mundo->inicializa();//Se inicializa mundo pero no se dibuja
 			ETSIDI::setTextColor(1, 1, 0);
 			ETSIDI::setFont("Fuentes/Bitwise.ttf", 50);
 			ETSIDI::printxy("INFINITE RUN", -5.5, 15);
@@ -38,31 +41,21 @@ void MaquinaEstados::dibuja() {
 
 	else    if (estado == GAMEOVER)
 	{
-		/*gluLookAt(mundo->getOjo().x, mundo->getOjo().y, mundo->getOjo().z,  // posicion del ojo 
-			0.0, mundo->getZapunta(), 0.0,      // hacia que punto mira  (0,7.5,0)  
-			0.0, 1.0, 0.0);*/
 		mundo->dibuja();
-		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("Fuentes/Bitwise.ttf", 16);
-		glTranslatef(0, 0, mundo->getOjo().z - 20);
-		ETSIDI::printxy("GAMEOVER: Has perdido", -3, 10);
-		ETSIDI::printxy("Pulsa -C- para continuar", -3, 5);
-		glTranslatef(0, 0, -(mundo->getOjo().z - 20));
+		Texto::printxyz((char*)"GAMEOVER: HAS PERDIDO!", -6, 10, mundo->getOjo().z - 20);
+		Texto::printxyz((char*)"PULSA -C- PARA CONTINUAR", -6, 5, mundo->getOjo().z - 20);
 	}
 	else if (estado == PAUSA)
 		 {
-		/*gluLookAt(mundo->getOjo().x, mundo->getOjo().y, mundo->getOjo().z,  // posicion del ojo 
-			0.0, mundo->getZapunta(), 0.0,      // hacia que punto mira  (0,7.5,0)  
-			0.0, 1.0, 0.0);*/
 		mundo->dibuja();
-		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("Fuentes/Bitwise.ttf", 16);
-		glTranslatef(0, 0, mundo->getOjo().z - 20);
-		ETSIDI::printxy("PAUSA", -3, 15);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA REANUDAR", -3, 10);
-		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -3, 7);
-		ETSIDI::printxy("PULSE LA TECLA -M- PARA VOLVER AL MENU", -3, 4);
-		glTranslatef(0, 0, -(mundo->getOjo().z - 20));
+		Texto::printxyz((char*)"PAUSA",-6,10, mundo->getOjo().z - 20);
+		Texto::printxyz((char*)"PULSE LA TECLA -E- PARA REANUDAR", -6, 7, mundo->getOjo().z - 20);
+		Texto::printxyz((char*)"PULSE LA TECLA -S- PARA SALIR", -6, 4, mundo->getOjo().z - 20);
+		Texto::printxyz((char*)"PULSE LA TECLA -M- PARA VOLVER AL MENU", -6, 1, mundo->getOjo().z - 20);
 		}
 }
 
@@ -100,7 +93,7 @@ void MaquinaEstados::tecla(unsigned char key) {
 			estado = JUEGO;
 		if (key == 's'||key=='S')
 			exit(0);
-		if (key == 'm'||key=='M') {
+		if (key == 'm'||key=='M') {//Cuando se vuelve al menu, se destruye el mundo y se crea uno nuevo original
 			delete mundo;
 			mundo = new Mundo;
 			estado = INICIO;
@@ -108,7 +101,7 @@ void MaquinaEstados::tecla(unsigned char key) {
 		}
 	else    if (estado == GAMEOVER)
 	{
-		if (key == 'c'||key=='C') {
+		if (key == 'c'||key=='C') {//Cuando se pierde se borra el mundo y se crea uno nuevo
 			delete mundo;
 			mundo = new Mundo;
 			estado = INICIO;
@@ -120,9 +113,4 @@ void MaquinaEstados::cambia() {
 	if (estado == JUEGO) {
 		mundo->cambia();
 	}
-}
-
-
-MaquinaEstados::~MaquinaEstados() {
-	delete mundo;
 }

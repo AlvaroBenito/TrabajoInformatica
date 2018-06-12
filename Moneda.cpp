@@ -22,7 +22,7 @@ Moneda::Moneda(){
 
 }
 
-Moneda::Moneda(float posx, float posy, float posz,float vel):puntos(1) {
+Moneda::Moneda(float posx, float posy, float posz,float vel):puntos(1) {//Las monedas normales valen 1punto
 	posicion.x = posx;
 	posicion.y = posy;
 	posicion.z = posz;

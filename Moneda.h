@@ -10,8 +10,8 @@ public:
 	Moneda();
 	Moneda(float posx, float posy, float posz, float vel = 0);
 	void setPos(Vector3D pos);
-	virtual void dibuja();
-	static void sumaAnguloRot(float theta);
+	virtual void dibuja();//metodo virtual para que MonedaEspecial use el suyo
+	static void sumaAnguloRot(float theta);//Metodo para aplicar "velocidad angular" a las monedas
 	int getPuntos();
 	friend class Interaccion;
 };

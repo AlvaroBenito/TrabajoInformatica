@@ -38,9 +38,15 @@ void PrismaRectangular::dibuja() {
 	case 4:
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Portal1.png").id);
+		break;
 	case 10:
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Corazon.png").id);
+		break;
+	case 11:
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imag/Escudo.png").id);
+		break;
 	}
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);//Cara1, alzado posterior

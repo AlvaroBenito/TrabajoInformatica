@@ -14,7 +14,7 @@ class Plataforma
 	Vector3D tamañoRect1;//esquina izquierda del fondo
 	Vector3D tamañoRect2;//esquina superior derecha del alzado frontal
 	Vector3D esquinaDer;//vector auxiliar de la esquina inferior derecha del alzado frontal del suelo
-	Vector3D limFondo1;//Estos dos vectores son para hacer el plano que forme el dondo del juego.
+	Vector3D limFondo1;//Estos dos vectores son para hacer el plano que forme el fondo del juego.
 	Vector3D limFondo2;
 	PrismaRectangular sueloDer;
 	PrismaRectangular sueloCen;

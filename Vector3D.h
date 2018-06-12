@@ -8,5 +8,5 @@ public:
 	float z;
 	Vector3D(float x1=0.0f, float y1=0.0f, float z1=0.0f);	 	
 	Vector3D operator + (float x1);//Operacion sumar al eje x
-	Vector3D operator - (float x1);
+	Vector3D operator - (float x1);//Operacion de restar al eje x
 };
